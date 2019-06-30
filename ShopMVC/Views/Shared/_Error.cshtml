@@ -1,0 +1,50 @@
+﻿@using System.Web.Mvc
+@model HandleErrorInfo
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+
+<style>
+    td.header {
+        font-weight: bold;
+        vertical-align: top;
+    }
+</style>
+
+<h1 style="color: red;">An error occured!</h1>
+
+<table style="width: 100%">
+    <tr>
+        <td class="header" nowrap>
+            Controller:
+        </td>
+        <td>
+            @Model.ControllerName
+        </td>
+    </tr>
+    <tr>
+        <td class="header" nowrap>
+            Action:
+        </td>
+        <td>
+            @Model.ActionName
+        </td>
+    </tr>
+    <tr>
+        <td class="header" nowrap>
+            Message:
+        </td>
+        <td>
+            @Model.Exception.Message
+        </td>
+    </tr>
+    <tr>
+        <td class="header" nowrap>
+            Stack trace:
+        </td>
+        <td>
+            @Model.Exception.StackTrace
+        </td>
+    </tr>
+</table>

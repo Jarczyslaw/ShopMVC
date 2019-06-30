@@ -1,13 +1,26 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using ShopMVC.App_Code;
 
 namespace ShopMVC
 {
-    public class FilterConfig
+    public static class FilterConfig
     {
-        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+        public static void RegisterFilters(GlobalFilterCollection filters, params FilterAttribute[] filtersToAdd)
         {
-            filters.Add(new HandleErrorAttribute());
+            foreach (var filter in filtersToAdd)
+            {
+                filters.Add(filter);
+            }
+        }
+
+        public static void RegisterGlobalErrorHandling(GlobalFilterCollection filters)
+        {
+            RegisterFilters(filters, new CustomExceptionAttribute());
+        }
+
+        public static void RegisterFilters(GlobalFilterCollection filters)
+        {
+            RegisterGlobalErrorHandling(filters);
         }
     }
 }
