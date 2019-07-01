@@ -157,11 +157,13 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="App_Code\CustomExceptionAttribute.cs" />
+    <Compile Include="App_Code\DefaultCacheProvider.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Code\IAppConfiguration.cs" />
+    <Compile Include="App_Code\ICacheProvider.cs" />
     <Compile Include="T4MVC\BaseController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -258,6 +260,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Helpers\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

@@ -19,6 +19,7 @@ namespace ShopMVC
         public static void RegisterTypes(IUnityContainer container)
         {
             container.RegisterType<IAppConfiguration, AppConfiguration>();
+            container.RegisterType<ICacheProvider, DefaultCacheProvider>();
         }
     }
 }
