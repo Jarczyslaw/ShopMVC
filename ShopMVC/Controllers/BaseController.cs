@@ -5,13 +5,13 @@ namespace ShopMVC.Controllers
 {
     public partial class BaseController : Controller
     {
-        protected readonly IAppConfiguration appConfiguration;
+        protected readonly IAppConfig appConfiguration;
 
         public BaseController()
         {
         }
 
-        public BaseController(IAppConfiguration appConfiguration)
+        public BaseController(IAppConfig appConfiguration)
         {
             this.appConfiguration = appConfiguration;
         }

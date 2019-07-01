@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace ShopMVC.App_Code
 {
-    internal class AppConfiguration : IAppConfiguration
+    public class AppConfig : IAppConfig
     {
         public string Test => GetConfigValue();
 

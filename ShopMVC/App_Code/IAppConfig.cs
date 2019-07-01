@@ -1,6 +1,6 @@
 ﻿namespace ShopMVC.App_Code
 {
-    public interface IAppConfiguration
+    public interface IAppConfig
     {
         string Test { get; }
     }

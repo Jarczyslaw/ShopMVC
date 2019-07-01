@@ -6,7 +6,7 @@ namespace ShopMVC.Controllers
 {
     public partial class HomeController : BaseController
     {
-        public HomeController(IAppConfiguration appConfiguration) : base(appConfiguration)
+        public HomeController(IAppConfig appConfiguration) : base(appConfiguration)
         {
         }
 
