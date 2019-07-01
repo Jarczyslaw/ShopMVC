@@ -158,12 +158,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="App_Code\CustomExceptionAttribute.cs" />
     <Compile Include="App_Code\DefaultCacheProvider.cs" />
+    <Compile Include="Helpers\DisposableHelper.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Code\ICacheProvider.cs" />
     <Compile Include="App_Code\IAppConfig.cs" />
+    <Compile Include="HtmlHelperExtensions.cs" />
     <Compile Include="T4MVC\BaseController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -185,6 +187,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\favicon.ico" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -261,7 +264,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
