@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopMVC.Tests", "ShopMVC.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopMVC.ViewModels", "ShopMVC.ViewModels\ShopMVC.ViewModels.csproj", "{DAA65B6C-3BB1-400B-A3D3-8F2068C04D36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopMVC.DataAccess", "ShopMVC.DataAccess\ShopMVC.DataAccess.csproj", "{DC9810B5-C640-460C-AEDB-F20949790B14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DAA65B6C-3BB1-400B-A3D3-8F2068C04D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAA65B6C-3BB1-400B-A3D3-8F2068C04D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAA65B6C-3BB1-400B-A3D3-8F2068C04D36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9810B5-C640-460C-AEDB-F20949790B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9810B5-C640-460C-AEDB-F20949790B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9810B5-C640-460C-AEDB-F20949790B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9810B5-C640-460C-AEDB-F20949790B14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
