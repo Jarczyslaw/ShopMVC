@@ -154,6 +154,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
+    <Compile Include="App_Code\ContentCache.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="App_Code\CustomExceptionAttribute.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="App_Code\ICacheProvider.cs" />
     <Compile Include="App_Code\IAppConfig.cs" />
     <Compile Include="HtmlHelperExtensions.cs" />
+    <Compile Include="App_Code\IContentCache.cs" />
     <Compile Include="T4MVC\BaseController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>

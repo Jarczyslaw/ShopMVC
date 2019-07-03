@@ -19,7 +19,9 @@ namespace ShopMVC.App_Code
         public T GetOrSet<T>(string key, Func<T> func, int duration)
         {
             if (IsSet(key))
+            {
                 return Get<T>(key);
+            }
             else
             {
                 T newValue = func();
