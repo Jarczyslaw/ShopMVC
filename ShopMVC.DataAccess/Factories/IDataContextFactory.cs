@@ -2,6 +2,6 @@
 {
     public interface IDataContextFactory
     {
-        DataContext Create();
+        DataContext GetContext();
     }
 }

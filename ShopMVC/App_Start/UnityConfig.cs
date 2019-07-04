@@ -1,4 +1,8 @@
 using ShopMVC.App_Code;
+using ShopMVC.Commons;
+using ShopMVC.DataAccess.Repositories;
+using ShopMVC.DataAccess.UnitsOfWork;
+using ShopMVC.Services;
 using System;
 using Unity;
 
@@ -20,6 +24,22 @@ namespace ShopMVC
         {
             container.RegisterType<IAppConfig, AppConfig>();
             container.RegisterType<IContentCache, ContentCache>();
+
+            RegisterDataAccessDependencies(container);
+            RegisterServices(container);
+        }
+
+        private static void RegisterServices(IUnityContainer container)
+        {
+            container.RegisterForRequest<ICoursesService, CoursesService>();
+            container.RegisterForRequest<ICategoriesService, CategoriesService>();
+        }
+
+        private static void RegisterDataAccessDependencies(IUnityContainer container)
+        {
+            container.RegisterForRequest<IUnitOfWork, UnitOfWork>();
+            container.RegisterForRequest<ICoursesRepository, CoursesRepository>();
+            container.RegisterForRequest<ICategoriesRepository, CategoriesRepository>();
         }
     }
 }

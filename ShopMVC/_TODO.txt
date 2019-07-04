@@ -1,0 +1,5 @@
+﻿Import from previous project
+
+	create data access with in memory collection
+	setup database with EF
+	check for useful ASP.NET MVC utilities

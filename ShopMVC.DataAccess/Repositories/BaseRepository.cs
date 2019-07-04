@@ -12,12 +12,12 @@ namespace ShopMVC.DataAccess.Repositories
     {
         protected BaseRepository(IDataContextFactory dataContextFactory)
         {
-            DataContext = dataContextFactory.Create();
+            DataContext = dataContextFactory.GetContext();
             DbSet = DataContext.Set<T>();
         }
 
-        protected DataContext DataContext { get; }
-        protected IDbSet<T> DbSet { get; }
+        public DataContext DataContext { get; }
+        public IDbSet<T> DbSet { get; }
 
         public virtual void Add(T entity)
         {
@@ -59,7 +59,10 @@ namespace ShopMVC.DataAccess.Repositories
 
         public virtual void Update(T entity)
         {
-            DbSet.Attach(entity);
+            if (DataContext.Entry(entity).State == EntityState.Detached)
+            {
+                DbSet.Attach(entity);
+            }
             DataContext.Entry(entity).State = EntityState.Modified;
         }
     }

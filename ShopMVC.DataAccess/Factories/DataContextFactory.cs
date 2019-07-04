@@ -6,7 +6,7 @@ namespace ShopMVC.DataAccess.Factories
     {
         private DataContext dataContext;
 
-        public DataContext Create()
+        public DataContext GetContext()
         {
             return dataContext ?? (dataContext = new DataContext());
         }

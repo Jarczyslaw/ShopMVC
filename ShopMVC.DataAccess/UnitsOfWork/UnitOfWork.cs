@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using ShopMVC.DataAccess.Factories;
+using System.Data.Entity;
 using System.Linq;
 
 namespace ShopMVC.DataAccess.UnitsOfWork
@@ -7,9 +8,9 @@ namespace ShopMVC.DataAccess.UnitsOfWork
     {
         private readonly DataContext dataContext;
 
-        public UnitOfWork(DataContext dataContext)
+        public UnitOfWork(IDataContextFactory dataContextFactory)
         {
-            this.dataContext = dataContext;
+            dataContext = dataContextFactory.GetContext();
         }
 
         public void Commit()

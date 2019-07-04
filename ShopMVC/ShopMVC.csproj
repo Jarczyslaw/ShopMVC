@@ -242,6 +242,7 @@
       <LastGenOutput>T4MVC.cs</LastGenOutput>
     </None>
     <None Include="T4MVC\T4MVC.tt.settings.xml" />
+    <Content Include="_TODO.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -282,6 +283,18 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ShopMVC.Commons\ShopMVC.Commons.csproj">
+      <Project>{ee479e3c-c12f-4ce8-bbdb-7ee08e188073}</Project>
+      <Name>ShopMVC.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopMVC.DataAccess\ShopMVC.DataAccess.csproj">
+      <Project>{DC9810B5-C640-460C-AEDB-F20949790B14}</Project>
+      <Name>ShopMVC.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopMVC.Services\ShopMVC.Services.csproj">
+      <Project>{39C0ECA0-73AD-483A-B09D-B3DA10215CC6}</Project>
+      <Name>ShopMVC.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShopMVC.ViewModels\ShopMVC.ViewModels.csproj">
       <Project>{daa65b6c-3bb1-400b-a3d3-8f2068c04d36}</Project>
       <Name>ShopMVC.ViewModels</Name>
