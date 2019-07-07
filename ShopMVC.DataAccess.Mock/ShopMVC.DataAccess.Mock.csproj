@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>e86ae151-4292-483f-8203-3aed9921a42a</ProjectGuid>
+    <ProjectGuid>{E86AE151-4292-483F-8203-3AED9921A42A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ShopMVC.DataAccess.Mock</RootNamespace>
@@ -31,24 +31,31 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShopMVC.DataAccess.Abstraction\ShopMVC.DataAccess.Abstraction.csproj">
+      <Project>{1e74f606-3f27-45fe-9611-28e4203c504a}</Project>
+      <Name>ShopMVC.DataAccess.Abstraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopMVC.DataAccess.Commons\ShopMVC.DataAccess.Commons.csproj">
+      <Project>{32ec0e37-3ac5-45e6-a05e-b44d95884c99}</Project>
+      <Name>ShopMVC.DataAccess.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopMVC.DataAccess.Models\ShopMVC.DataAccess.Models.csproj">
+      <Project>{654940e1-d3cc-4845-89ca-df2466d347eb}</Project>
+      <Name>ShopMVC.DataAccess.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
