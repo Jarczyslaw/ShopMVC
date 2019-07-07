@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace ShopMVC.DataAccess.Repositories
+namespace ShopMVC.DataAccess.Abstraction
 {
     public interface IRepository<T> where T : class
     {

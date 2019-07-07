@@ -1,8 +1,8 @@
-﻿using ShopMVC.DataAccess.Factories;
+﻿using ShopMVC.DataAccess.Abstraction;
 using System.Data.Entity;
 using System.Linq;
 
-namespace ShopMVC.DataAccess.UnitsOfWork
+namespace ShopMVC.DataAccess
 {
     public class UnitOfWork : IUnitOfWork
     {

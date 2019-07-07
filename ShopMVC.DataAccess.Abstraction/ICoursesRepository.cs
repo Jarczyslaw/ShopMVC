@@ -1,6 +1,6 @@
 ﻿using ShopMVC.DataAccess.Models;
 
-namespace ShopMVC.DataAccess.Repositories
+namespace ShopMVC.DataAccess.Abstraction
 {
     public interface ICoursesRepository : IRepository<Course>
     {

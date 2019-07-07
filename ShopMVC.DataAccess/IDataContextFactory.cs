@@ -1,4 +1,4 @@
-﻿namespace ShopMVC.DataAccess.Factories
+﻿namespace ShopMVC.DataAccess
 {
     public interface IDataContextFactory
     {

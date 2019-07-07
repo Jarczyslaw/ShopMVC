@@ -56,6 +56,12 @@ namespace ShopMVC.Controllers
             return RedirectToActionPermanent(taskResult.Result);
         }
 
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult Subview()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Subview);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public BaseController Actions { get { return MVC.Base; } }
@@ -72,14 +78,25 @@ namespace ShopMVC.Controllers
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
+            public readonly string Subview = "Subview";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
+            public const string Subview = "Subview";
         }
 
 
+        static readonly ActionParamsClass_Subview s_params_Subview = new ActionParamsClass_Subview();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Subview SubviewParams { get { return s_params_Subview; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Subview
+        {
+            public readonly string targetView = "targetView";
+            public readonly string viewModel = "viewModel";
+        }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ViewsClass Views { get { return s_views; } }
@@ -98,6 +115,19 @@ namespace ShopMVC.Controllers
     public partial class T4MVC_BaseController : ShopMVC.Controllers.BaseController
     {
         public T4MVC_BaseController() : base(Dummy.Instance) { }
+
+        [NonAction]
+        partial void SubviewOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string targetView, object viewModel);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Subview(string targetView, object viewModel)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Subview);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "targetView", targetView);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "viewModel", viewModel);
+            SubviewOverride(callInfo, targetView, viewModel);
+            return callInfo;
+        }
 
     }
 }

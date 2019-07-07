@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShopMVC.DataAccess.Factories
+namespace ShopMVC.DataAccess
 {
     public class DataContextFactory : IDataContextFactory, IDisposable
     {

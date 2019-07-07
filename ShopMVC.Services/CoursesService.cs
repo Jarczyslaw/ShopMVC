@@ -1,9 +1,8 @@
 ﻿using ShopMVC.DataAccess.Models;
-using ShopMVC.DataAccess.Repositories;
-using ShopMVC.DataAccess.UnitsOfWork;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using ShopMVC.DataAccess.Abstraction;
 
 namespace ShopMVC.Services
 {

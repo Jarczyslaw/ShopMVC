@@ -1,7 +1,7 @@
 using ShopMVC.App_Code;
 using ShopMVC.Commons;
-using ShopMVC.DataAccess.Repositories;
-using ShopMVC.DataAccess.UnitsOfWork;
+using ShopMVC.DataAccess;
+using ShopMVC.DataAccess.Abstraction;
 using ShopMVC.Services;
 using System;
 using Unity;

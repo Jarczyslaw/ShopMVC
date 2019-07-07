@@ -1,7 +1,7 @@
-﻿using ShopMVC.DataAccess.Factories;
+﻿using ShopMVC.DataAccess.Abstraction;
 using ShopMVC.DataAccess.Models;
 
-namespace ShopMVC.DataAccess.Repositories
+namespace ShopMVC.DataAccess
 {
     public class CoursesRepository : BaseRepository<Course>, ICoursesRepository
     {

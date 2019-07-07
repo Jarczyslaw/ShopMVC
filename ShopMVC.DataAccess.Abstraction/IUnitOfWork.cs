@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShopMVC.DataAccess.UnitsOfWork
+namespace ShopMVC.DataAccess.Abstraction
 {
     public interface IUnitOfWork : IDisposable
     {

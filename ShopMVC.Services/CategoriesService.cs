@@ -1,6 +1,5 @@
-﻿using ShopMVC.DataAccess.Models;
-using ShopMVC.DataAccess.Repositories;
-using ShopMVC.DataAccess.UnitsOfWork;
+﻿using ShopMVC.DataAccess.Abstraction;
+using ShopMVC.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 
