@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using NLog;
+using System.Diagnostics;
 using System.Web.Mvc;
 
 namespace ShopMVC.App_Code

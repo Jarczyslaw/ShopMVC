@@ -20,7 +20,7 @@ namespace ShopMVC
 
         public static void RegisterFilters(GlobalFilterCollection filters)
         {
-            RegisterGlobalErrorHandling(filters);
+            //RegisterGlobalErrorHandling(filters);
         }
     }
 }
