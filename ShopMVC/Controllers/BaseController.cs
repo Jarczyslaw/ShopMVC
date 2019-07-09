@@ -1,5 +1,5 @@
 ﻿using NLog;
-using ShopMVC.App_Code;
+using ShopMVC.Code;
 using ShopMVC.ViewModels;
 using System.Web.Mvc;
 

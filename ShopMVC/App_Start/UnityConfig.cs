@@ -1,4 +1,4 @@
-using ShopMVC.App_Code;
+using ShopMVC.Code;
 using ShopMVC.Commons;
 using ShopMVC.DataAccess;
 using ShopMVC.DataAccess.Abstraction;
@@ -23,7 +23,6 @@ namespace ShopMVC
         public static void RegisterTypes(IUnityContainer container)
         {
             container.RegisterType<IAppConfig, AppConfig>();
-            container.RegisterType<IContentCache, ContentCache>();
 
             RegisterDataAccessDependencies(container);
             RegisterServices(container);

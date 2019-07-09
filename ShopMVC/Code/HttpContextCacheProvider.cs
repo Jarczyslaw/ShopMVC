@@ -2,9 +2,9 @@
 using System.Web;
 using System.Web.Caching;
 
-namespace ShopMVC.App_Code
+namespace ShopMVC.Code
 {
-    public class DefaultCacheProvider : ICacheProvider
+    public class HttpContextCacheProvider : ICacheProvider
     {
         public Cache Cache
         {
@@ -16,7 +16,7 @@ namespace ShopMVC.App_Code
             return Cache.Get(key);
         }
 
-        public T GetOrSet<T>(string key, Func<T> func, int duration)
+        public T GetOrSet<T>(string key, Func<T> func, TimeSpan duration)
         {
             if (IsSet(key))
             {
@@ -40,13 +40,12 @@ namespace ShopMVC.App_Code
             return Cache.Get(key) != null;
         }
 
-        public void Set(string key, object value, int duration)
+        public void Set(string key, object value, TimeSpan duration)
         {
-            var expirationTime = DateTime.Now.AddSeconds(duration);
-            Cache.Insert(key, value, null, expirationTime, Cache.NoSlidingExpiration);
+            Cache.Insert(key, value, null, DateTime.Now + duration, Cache.NoSlidingExpiration);
         }
 
-        public void Invalidate(string key)
+        public void Remove(string key)
         {
             Cache.Remove(key);
         }

@@ -1,4 +1,4 @@
-﻿namespace ShopMVC.App_Code
+﻿namespace ShopMVC.Code
 {
     public interface IAppConfig
     {

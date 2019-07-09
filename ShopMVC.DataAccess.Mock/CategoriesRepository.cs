@@ -8,6 +8,8 @@ namespace ShopMVC.DataAccess.Mock
 {
     public class CategoriesRepository : ICategoriesRepository
     {
+        private readonly List<Category> categories = new List<Category>();
+
         public void Add(Category entity)
         {
             throw new NotImplementedException();

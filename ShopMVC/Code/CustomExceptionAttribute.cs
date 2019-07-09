@@ -1,8 +1,7 @@
-﻿using NLog;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Web.Mvc;
 
-namespace ShopMVC.App_Code
+namespace ShopMVC.Code
 {
     public class CustomExceptionAttribute : HandleErrorAttribute
     {

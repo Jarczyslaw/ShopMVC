@@ -70,6 +70,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -154,27 +155,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\AppConfig.cs" />
+    <Compile Include="Code\AppConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
-    <Compile Include="App_Code\ContentCache.cs" />
+    <Compile Include="Code\MemoryCacheProvider.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="App_Code\CustomExceptionAttribute.cs" />
-    <Compile Include="App_Code\DefaultCacheProvider.cs" />
+    <Compile Include="Code\CustomExceptionAttribute.cs" />
+    <Compile Include="Code\HttpContextCacheProvider.cs" />
     <Compile Include="Helpers\DisposableHelper.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\ICacheProvider.cs" />
-    <Compile Include="App_Code\IAppConfig.cs" />
+    <Compile Include="Code\ICacheProvider.cs" />
+    <Compile Include="Code\IAppConfig.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
-    <Compile Include="App_Code\IContentCache.cs" />
     <Compile Include="T4MVC\BaseController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>

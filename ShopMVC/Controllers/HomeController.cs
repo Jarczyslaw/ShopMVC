@@ -1,4 +1,4 @@
-﻿using ShopMVC.App_Code;
+﻿using ShopMVC.Code;
 using System;
 using System.Web.Mvc;
 
@@ -19,7 +19,6 @@ namespace ShopMVC.Controllers
         {
             ViewBag.Message = "Your application description page.";
             ViewBag.Test = appConfiguration.Test;
-
             return View();
         }
 

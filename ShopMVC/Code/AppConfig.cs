@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.Runtime.CompilerServices;
 
-namespace ShopMVC.App_Code
+namespace ShopMVC.Code
 {
     public class AppConfig : IAppConfig
     {

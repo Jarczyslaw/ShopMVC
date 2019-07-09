@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using ShopMVC.App_Code;
+using ShopMVC.Code;
 
 namespace ShopMVC
 {
