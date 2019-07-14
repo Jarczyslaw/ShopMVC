@@ -1,6 +1,16 @@
 using ShopMVC.Code;
 using ShopMVC.Commons;
+
+#if MOCK
+
+using ShopMVC.DataAccess.Mock;
+
+#else
+
 using ShopMVC.DataAccess;
+
+#endif
+
 using ShopMVC.DataAccess.Abstraction;
 using ShopMVC.Services;
 using System;
@@ -11,12 +21,12 @@ namespace ShopMVC
     public static class UnityConfig
     {
         private static readonly Lazy<IUnityContainer> container =
-          new Lazy<IUnityContainer>(() =>
-          {
-              var container = new UnityContainer();
-              RegisterTypes(container);
-              return container;
-          });
+            new Lazy<IUnityContainer>(() =>
+            {
+                var container = new UnityContainer();
+                RegisterTypes(container);
+                return container;
+            });
 
         public static IUnityContainer Container => container.Value;
 
@@ -34,11 +44,26 @@ namespace ShopMVC
             container.RegisterForRequest<ICategoriesService, CategoriesService>();
         }
 
+#if MOCK
+
         private static void RegisterDataAccessDependencies(IUnityContainer container)
         {
             container.RegisterForRequest<IUnitOfWork, UnitOfWork>();
+            container.RegisterForRequest<IDataContextProvider, DataContextProvider>();
             container.RegisterForRequest<ICoursesRepository, CoursesRepository>();
             container.RegisterForRequest<ICategoriesRepository, CategoriesRepository>();
         }
+
+#else
+
+        private static void RegisterDataAccessDependencies(IUnityContainer container)
+        {
+            container.RegisterForRequest<IUnitOfWork, UnitOfWork>();
+            container.RegisterForRequest<IDataContextFactory, DataContextFactory>();
+            container.RegisterForRequest<ICoursesRepository, CoursesRepository>();
+            container.RegisterForRequest<ICategoriesRepository, CategoriesRepository>();
+        }
+
+#endif
     }
 }

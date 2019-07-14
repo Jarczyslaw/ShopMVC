@@ -4,19 +4,25 @@ namespace ShopMVC.DataAccess.Mock
 {
     public class UnitOfWork : IUnitOfWork
     {
+        private readonly IDataContextProvider dataContextProvider;
+
+        public UnitOfWork(IDataContextProvider dataContextProvider)
+        {
+            this.dataContextProvider = dataContextProvider;
+        }
+
         public void Commit()
         {
-            throw new System.NotImplementedException();
+            dataContextProvider.Save();
         }
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
         }
 
         public void Revert()
         {
-            throw new System.NotImplementedException();
+            dataContextProvider.Load();
         }
     }
 }

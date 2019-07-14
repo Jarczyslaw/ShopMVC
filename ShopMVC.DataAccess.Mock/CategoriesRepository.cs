@@ -3,51 +3,77 @@ using ShopMVC.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Linq;
+using Nelibur.ObjectMapper;
 
 namespace ShopMVC.DataAccess.Mock
 {
     public class CategoriesRepository : ICategoriesRepository
     {
-        private readonly List<Category> categories = new List<Category>();
+        private readonly IDataContextProvider dataContextProvider;
+
+        public CategoriesRepository(IDataContextProvider dataContextProvider)
+        {
+            this.dataContextProvider = dataContextProvider;
+        }
 
         public void Add(Category entity)
         {
-            throw new NotImplementedException();
+            entity.CategoryId = GetNextId();
+            dataContextProvider.Categories.Add(entity);
         }
 
         public void Delete(Category entity)
         {
-            throw new NotImplementedException();
+            var category = GetById(entity.CategoryId);
+            dataContextProvider.Categories.Remove(category);
         }
 
         public void Delete(Expression<Func<Category, bool>> where)
         {
-            throw new NotImplementedException();
+            var category = dataContextProvider.Categories.AsQueryable().SingleOrDefault(where);
+            if (category != null)
+            {
+                dataContextProvider.Categories.Remove(category);
+            }
         }
 
         public Category Get(Expression<Func<Category, bool>> where)
         {
-            throw new NotImplementedException();
+            return dataContextProvider.Categories.AsQueryable().SingleOrDefault(where);
         }
 
         public IEnumerable<Category> GetAll()
         {
-            throw new NotImplementedException();
+            return dataContextProvider.Categories;
         }
 
         public Category GetById(int id)
         {
-            throw new NotImplementedException();
+            return dataContextProvider.Categories.SingleOrDefault(c => c.CategoryId == id);
         }
 
         public IEnumerable<Category> GetMany(Expression<Func<Category, bool>> where)
         {
-            throw new NotImplementedException();
+            return dataContextProvider.Categories.AsQueryable().Where(where);
         }
 
         public void Update(Category entity)
         {
-            throw new NotImplementedException();
+            var category = GetById(entity.CategoryId);
+            TinyMapper.Map(entity, category);
+        }
+
+        private int GetNextId()
+        {
+            if (dataContextProvider.Categories?.Any() != null)
+            {
+                return dataContextProvider.Categories.Max(c => c.CategoryId);
+            }
+            else
+            {
+                return default;
+            }
         }
     }
 }
