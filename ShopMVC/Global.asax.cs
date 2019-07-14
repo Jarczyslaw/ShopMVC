@@ -1,16 +1,15 @@
-﻿using NLog;
-using ShopMVC.App_Start;
+﻿using ShopMVC.App_Start;
+using ShopMVC.Services;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Unity;
 
 namespace ShopMVC
 {
     public class MvcApplication : HttpApplication
     {
-        private readonly ILogger logger = LogManager.GetCurrentClassLogger();
-
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -25,7 +24,8 @@ namespace ShopMVC
             var exception = Server.GetLastError();
             if (exception != null)
             {
-                logger.Log(LogLevel.Fatal, exception);
+                var logger = UnityConfig.Container.Resolve<ILoggerService>();
+                logger.Fatal(exception, "Application error");
             }
         }
     }

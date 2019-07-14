@@ -1,5 +1,5 @@
-﻿using NLog;
-using ShopMVC.Code;
+﻿using ShopMVC.Code;
+using ShopMVC.Services;
 using ShopMVC.ViewModels;
 using System.Web.Mvc;
 
@@ -8,15 +8,16 @@ namespace ShopMVC.Controllers
     public partial class BaseController : Controller
     {
         protected readonly IAppConfig appConfiguration;
-        protected readonly ILogger logger = LogManager.GetCurrentClassLogger();
+        protected readonly ILoggerService logger;
 
         public BaseController()
         {
         }
 
-        public BaseController(IAppConfig appConfiguration)
+        public BaseController(IAppConfig appConfiguration, ILoggerService logger)
         {
             this.appConfiguration = appConfiguration;
+            this.logger = logger;
         }
 
         public virtual ActionResult Subview(string targetView, object viewModel)
@@ -32,7 +33,7 @@ namespace ShopMVC.Controllers
         protected override void OnException(ExceptionContext filterContext)
         {
             var exception = filterContext.Exception;
-            logger.Log(LogLevel.Fatal, exception);
+            logger.Fatal(exception);
 
             var controller = (string)filterContext.RouteData.Values["controller"];
             var action = (string)filterContext.RouteData.Values["action"];
