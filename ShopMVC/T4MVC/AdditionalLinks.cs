@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Links
+﻿namespace Links
 {
     public static partial class Bundles
     {
@@ -13,7 +8,7 @@ namespace Links
             public static readonly string bootstrapBundle = "~/bundles/bootstrap";
         }
 
-        public static partial class Styles
+        public static class Styles
         {
             public static readonly string cssBundle = "~/bundles/css";
         }
