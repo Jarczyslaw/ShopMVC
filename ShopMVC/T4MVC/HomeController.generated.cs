@@ -58,6 +58,12 @@ namespace ShopMVC.Controllers
 
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult Pages()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Pages);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult Subview()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Subview);
@@ -79,8 +85,7 @@ namespace ShopMVC.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
-            public readonly string About = "About";
-            public readonly string Contact = "Contact";
+            public readonly string Pages = "Pages";
             public readonly string Subview = "Subview";
         }
 
@@ -88,12 +93,19 @@ namespace ShopMVC.Controllers
         public class ActionNameConstants
         {
             public const string Index = "Index";
-            public const string About = "About";
-            public const string Contact = "Contact";
+            public const string Pages = "Pages";
             public const string Subview = "Subview";
         }
 
 
+        static readonly ActionParamsClass_Pages s_params_Pages = new ActionParamsClass_Pages();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Pages PagesParams { get { return s_params_Pages; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Pages
+        {
+            public readonly string page = "page";
+        }
         static readonly ActionParamsClass_Subview s_params_Subview = new ActionParamsClass_Subview();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ActionParamsClass_Subview SubviewParams { get { return s_params_Subview; } }
@@ -115,11 +127,15 @@ namespace ShopMVC.Controllers
             {
                 public readonly string About = "About";
                 public readonly string Contact = "Contact";
+                public readonly string Help = "Help";
                 public readonly string Index = "Index";
+                public readonly string Regulations = "Regulations";
             }
             public readonly string About = "~/Views/Home/About.cshtml";
             public readonly string Contact = "~/Views/Home/Contact.cshtml";
+            public readonly string Help = "~/Views/Home/Help.cshtml";
             public readonly string Index = "~/Views/Home/Index.cshtml";
+            public readonly string Regulations = "~/Views/Home/Regulations.cshtml";
         }
     }
 
@@ -140,24 +156,14 @@ namespace ShopMVC.Controllers
         }
 
         [NonAction]
-        partial void AboutOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void PagesOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string page);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult About()
+        public override System.Web.Mvc.ActionResult Pages(string page)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.About);
-            AboutOverride(callInfo);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void ContactOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult Contact()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Contact);
-            ContactOverride(callInfo);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Pages);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "page", page);
+            PagesOverride(callInfo, page);
             return callInfo;
         }
 

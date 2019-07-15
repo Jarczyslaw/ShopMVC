@@ -17,18 +17,9 @@ namespace ShopMVC.Controllers
             return View();
         }
 
-        public virtual ActionResult About()
+        public virtual ActionResult Pages(string page)
         {
-            ViewBag.Message = "Your application description page.";
-            ViewBag.Test = appConfiguration.Test;
-            return View();
-        }
-
-        public virtual ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-            throw new Exception("Custom exception");
-            return View();
+            return View(page);
         }
     }
 }

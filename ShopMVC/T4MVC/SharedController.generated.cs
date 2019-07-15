@@ -40,9 +40,11 @@ namespace T4MVC
             {
                 public readonly string _Error = "_Error";
                 public readonly string _Layout = "_Layout";
+                public readonly string _SubView = "_SubView";
             }
             public readonly string _Error = "~/Views/Shared/_Error.cshtml";
             public readonly string _Layout = "~/Views/Shared/_Layout.cshtml";
+            public readonly string _SubView = "~/Views/Shared/_SubView.cshtml";
         }
     }
 

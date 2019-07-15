@@ -32,6 +32,7 @@ namespace ShopMVC
 
         public static void RegisterTypes(IUnityContainer container)
         {
+            container.RegisterSingleton<ILoggerService, LoggerService>();
             container.RegisterType<IAppConfig, AppConfig>();
 
             RegisterDataAccessDependencies(container);

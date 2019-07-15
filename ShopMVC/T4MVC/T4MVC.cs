@@ -73,8 +73,14 @@ namespace Links
         public const string UrlPath = "~/Scripts";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(UrlPath); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(UrlPath + "/" + fileName); }
+        public static readonly string bootstrap_bundle_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/bootstrap.bundle.min.js") ? Url("bootstrap.bundle.min.js") : Url("bootstrap.bundle.js");
+        public static readonly string bootstrap_bundle_js_map = Url("bootstrap.bundle.js.map");
+        public static readonly string bootstrap_bundle_min_js = Url("bootstrap.bundle.min.js");
+        public static readonly string bootstrap_bundle_min_js_map = Url("bootstrap.bundle.min.js.map");
         public static readonly string bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/bootstrap.min.js") ? Url("bootstrap.min.js") : Url("bootstrap.js");
+        public static readonly string bootstrap_js_map = Url("bootstrap.js.map");
         public static readonly string bootstrap_min_js = Url("bootstrap.min.js");
+        public static readonly string bootstrap_min_js_map = Url("bootstrap.min.js.map");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class esm {
             public const string UrlPath = "~/Scripts/esm";
@@ -135,16 +141,20 @@ namespace Links
         public const string UrlPath = "~/Content";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(UrlPath); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(UrlPath + "/" + fileName); }
-        public static readonly string bootstrap_theme_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/bootstrap-theme.min.css") ? Url("bootstrap-theme.min.css") : Url("bootstrap-theme.css");
-        public static readonly string bootstrap_theme_css_map = Url("bootstrap-theme.css.map");
-        public static readonly string bootstrap_theme_min_css = Url("bootstrap-theme.min.css");
-        public static readonly string bootstrap_theme_min_css_map = Url("bootstrap-theme.min.css.map");
+        public static readonly string bootstrap_grid_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/bootstrap-grid.min.css") ? Url("bootstrap-grid.min.css") : Url("bootstrap-grid.css");
+        public static readonly string bootstrap_grid_css_map = Url("bootstrap-grid.css.map");
+        public static readonly string bootstrap_grid_min_css = Url("bootstrap-grid.min.css");
+        public static readonly string bootstrap_grid_min_css_map = Url("bootstrap-grid.min.css.map");
+        public static readonly string bootstrap_reboot_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/bootstrap-reboot.min.css") ? Url("bootstrap-reboot.min.css") : Url("bootstrap-reboot.css");
+        public static readonly string bootstrap_reboot_css_map = Url("bootstrap-reboot.css.map");
+        public static readonly string bootstrap_reboot_min_css = Url("bootstrap-reboot.min.css");
+        public static readonly string bootstrap_reboot_min_css_map = Url("bootstrap-reboot.min.css.map");
         public static readonly string bootstrap_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/bootstrap.min.css") ? Url("bootstrap.min.css") : Url("bootstrap.css");
         public static readonly string bootstrap_css_map = Url("bootstrap.css.map");
         public static readonly string bootstrap_min_css = Url("bootstrap.min.css");
         public static readonly string bootstrap_min_css_map = Url("bootstrap.min.css.map");
         public static readonly string favicon_ico = Url("favicon.ico");
-        public static readonly string Site_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/Site.min.css") ? Url("Site.min.css") : Url("Site.css");
+        public static readonly string main_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/main.min.css") ? Url("main.min.css") : Url("main.css");
     }
 
     
@@ -175,6 +185,8 @@ namespace Links
             }
             public static class Assets
             {
+                public static readonly string bootstrap_bundle_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/bootstrap.bundle.js"); 
+                public static readonly string bootstrap_bundle_min_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/bootstrap.bundle.min.js"); 
                 public static readonly string bootstrap_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/bootstrap.js"); 
                 public static readonly string bootstrap_min_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/bootstrap.min.js"); 
                 public static readonly string jquery_3_4_1_intellisense_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/jquery-3.4.1.intellisense.js"); 
@@ -197,11 +209,13 @@ namespace Links
         {
             public static class Assets
             {
-                public static readonly string bootstrap_theme_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap-theme.css");
-                public static readonly string bootstrap_theme_min_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap-theme.min.css");
+                public static readonly string bootstrap_grid_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap-grid.css");
+                public static readonly string bootstrap_grid_min_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap-grid.min.css");
+                public static readonly string bootstrap_reboot_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap-reboot.css");
+                public static readonly string bootstrap_reboot_min_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap-reboot.min.css");
                 public static readonly string bootstrap_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap.css");
                 public static readonly string bootstrap_min_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap.min.css");
-                public static readonly string Site_css = T4MVCHelpers.ProcessAssetPath("~/Content/Site.css");
+                public static readonly string main_css = T4MVCHelpers.ProcessAssetPath("~/Content/main.css");
             }
         }
     }
