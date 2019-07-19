@@ -155,6 +155,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\AppCache.cs" />
     <Compile Include="Code\AppConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
+    <Compile Include="Code\IAppCache.cs" />
     <Compile Include="Code\MemoryCacheProvider.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -316,6 +318,10 @@
     <ProjectReference Include="..\ShopMVC.DataAccess.Mock\ShopMVC.DataAccess.Mock.csproj">
       <Project>{e86ae151-4292-483f-8203-3aed9921a42a}</Project>
       <Name>ShopMVC.DataAccess.Mock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopMVC.DataAccess.Models\ShopMVC.DataAccess.Models.csproj">
+      <Project>{654940E1-D3CC-4845-89CA-DF2466D347EB}</Project>
+      <Name>ShopMVC.DataAccess.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\ShopMVC.DataAccess\ShopMVC.DataAccess.csproj">
       <Project>{DC9810B5-C640-460C-AEDB-F20949790B14}</Project>

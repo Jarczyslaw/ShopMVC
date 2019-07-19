@@ -34,6 +34,9 @@ namespace ShopMVC
         {
             container.RegisterSingleton<ILoggerService, LoggerService>();
             container.RegisterType<IAppConfig, AppConfig>();
+            container.RegisterType<IHttpContextCacheProvider, HttpContextCacheProvider>();
+            container.RegisterType<IMemoryCacheProvider, MemoryCacheProvider>();
+            container.RegisterType<IAppCache, AppCache>();
 
             RegisterDataAccessDependencies(container);
             RegisterServices(container);

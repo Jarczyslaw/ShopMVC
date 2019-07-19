@@ -5,7 +5,7 @@ using System.Web.Caching;
 
 namespace ShopMVC.Code
 {
-    public class HttpContextCacheProvider : ICacheProvider
+    public class HttpContextCacheProvider : IHttpContextCacheProvider
     {
         public Cache Cache
         {

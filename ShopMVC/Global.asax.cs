@@ -10,6 +10,8 @@ namespace ShopMVC
 {
     public class MvcApplication : HttpApplication
     {
+        private ILoggerService logger;
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -17,6 +19,14 @@ namespace ShopMVC
             ViewEnginesConfig.Setup();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            logger = UnityConfig.Container.Resolve<ILoggerService>();
+            logger.Info(nameof(Application_Start));
+        }
+
+        protected void Application_End()
+        {
+            logger.Info(nameof(Application_End));
         }
 
         protected void Application_Error()
@@ -24,7 +34,6 @@ namespace ShopMVC
             var exception = Server.GetLastError();
             if (exception != null)
             {
-                var logger = UnityConfig.Container.Resolve<ILoggerService>();
                 logger.Fatal(exception, "Application error");
             }
         }

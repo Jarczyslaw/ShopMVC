@@ -4,7 +4,7 @@ using System.Runtime.Caching;
 
 namespace ShopMVC.Code
 {
-    public class MemoryCacheProvider : ICacheProvider
+    public class MemoryCacheProvider : IMemoryCacheProvider
     {
         public object Get(string key)
         {

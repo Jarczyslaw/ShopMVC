@@ -1,20 +1,35 @@
 ﻿using ShopMVC.Code;
 using ShopMVC.Services;
-using System;
+using ShopMVC.ViewModels;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace ShopMVC.Controllers
 {
     public partial class HomeController : BaseController
     {
-        public HomeController(IAppConfig appConfiguration, ILoggerService logger)
+        private readonly IAppCache appCache;
+        private readonly ICoursesService coursesService;
+
+        public HomeController(ICoursesService coursesService, IAppCache appCache, IAppConfig appConfiguration, ILoggerService logger)
             : base(appConfiguration, logger)
         {
+            this.coursesService = coursesService;
+            this.appCache = appCache;
         }
 
         public virtual ActionResult Index()
         {
-            return View();
+            var newCourses = appCache.GetNewCourses(() => coursesService.GetNewCourses().ToList());
+            var newBestsellers = appCache.GetBestsellers(() => coursesService.GetBestsellers().ToList());
+
+            var vm = new HomeIndexViewModel()
+            {
+                NewCourses = newCourses,
+                Bestsellers = newBestsellers
+            };
+
+            return Subview(MVC.Home.Views.Index, vm);
         }
 
         public virtual ActionResult Pages(string page)

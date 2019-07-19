@@ -82,6 +82,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICacheProvider.cs" />
+    <Compile Include="IHttpContextCacheProvider.cs" />
+    <Compile Include="IMemoryCacheProvider.cs" />
     <Compile Include="IUnityContainerExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
