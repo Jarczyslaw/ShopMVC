@@ -163,6 +163,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
+    <Compile Include="Code\ApplicationData.cs" />
     <Compile Include="Code\IAppCache.cs" />
     <Compile Include="Code\MemoryCacheProvider.cs" />
     <Compile Include="Controllers\BaseController.cs" />
