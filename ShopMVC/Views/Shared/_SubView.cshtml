@@ -5,15 +5,10 @@
 <div class="row">
     <div class="col-3">
         <div>
-            @*@Html.Action(MVC.Categories.List())*@
+            @Html.Action(MVC.Categories.List())
         </div>
     </div>
     <div class="col-9">
-        <div class="row">
-            <div class="col" style="padding: 20px;">
-                SiteMap
-            </div>
-        </div>
         <div>
             <div class="col">
                 @Html.Partial(Model.TargetView, Model.TargetViewModel)

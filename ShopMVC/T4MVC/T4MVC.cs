@@ -28,6 +28,8 @@ using T4MVC;
 public static partial class MVC
 {
     public static ShopMVC.Controllers.BaseController Base = new ShopMVC.Controllers.T4MVC_BaseController();
+    public static ShopMVC.Controllers.CategoriesController Categories = new ShopMVC.Controllers.T4MVC_CategoriesController();
+    public static ShopMVC.Controllers.CoursesController Courses = new ShopMVC.Controllers.T4MVC_CoursesController();
     public static ShopMVC.Controllers.HomeController Home = new ShopMVC.Controllers.T4MVC_HomeController();
     public static T4MVC.PartialController Partial = new T4MVC.PartialController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();

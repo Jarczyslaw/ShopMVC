@@ -10,7 +10,7 @@ namespace ShopMVC.Code
         private readonly IMemoryCacheProvider memoryCacheProvider;
         private readonly IHttpContextCacheProvider httpContextCacheProvider;
 
-        private readonly TimeSpan defaultCacheDuration = TimeSpan.FromMinutes(5);
+        private readonly TimeSpan defaultCacheDuration = TimeSpan.FromMinutes(1);
 
         private readonly string newCoursesKey = "NewCoursesKey";
         private readonly string bestsellerCoursesKey = "BestsellerCoursesKey";

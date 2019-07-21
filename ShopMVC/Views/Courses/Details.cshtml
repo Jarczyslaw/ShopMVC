@@ -1,0 +1,87 @@
+﻿@using ShopMVC.ViewModels;
+
+@model CourseDetailsViewModel
+
+@{
+    var category = Model.Category;
+    var course = Model.Course;
+
+    ViewBag.Title = course.Title;
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        margin: 5px;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        padding: 3px;
+    }
+</style>
+
+<h2>@ViewBag.Title</h2>
+<h4><strong>Category: </strong>@category.Title</h4>
+<table style="margin: 5px;">
+    <thead>
+        <tr>
+            <th>
+                Field
+            </th>
+            <th>
+                Value
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(m => m.Course.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Course.Title)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(m => m.Course.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Course.Author)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(m => m.Course.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Course.Price)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(m => m.Course.ShortDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Course.ShortDescription)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(m => m.Course.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Course.Description)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Flags
+            </td>
+            <td>
+                @Html.LabelFor(m => m.Course.Bestseller) @Html.CheckBoxFor(m => m.Course.Bestseller, new { @disabled = "disabled" })
+            </td>
+        </tr>
+    </tbody>
+</table>

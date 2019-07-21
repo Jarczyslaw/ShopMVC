@@ -1,5 +1,4 @@
-﻿using ShopMVC.Code;
-using ShopMVC.Services;
+﻿using ShopMVC.Services;
 using ShopMVC.ViewModels;
 using System.Web.Mvc;
 
@@ -7,16 +6,14 @@ namespace ShopMVC.Controllers
 {
     public partial class BaseController : Controller
     {
-        protected readonly IAppConfig appConfiguration;
         protected readonly ILoggerService logger;
 
         public BaseController()
         {
         }
 
-        public BaseController(IAppConfig appConfiguration, ILoggerService logger)
+        public BaseController(ILoggerService logger)
         {
-            this.appConfiguration = appConfiguration;
             this.logger = logger;
         }
 

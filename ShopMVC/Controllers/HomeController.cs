@@ -11,8 +11,8 @@ namespace ShopMVC.Controllers
         private readonly IAppCache appCache;
         private readonly ICoursesService coursesService;
 
-        public HomeController(ICoursesService coursesService, IAppCache appCache, IAppConfig appConfiguration, ILoggerService logger)
-            : base(appConfiguration, logger)
+        public HomeController(ICoursesService coursesService, IAppCache appCache, ILoggerService logger)
+            : base(logger)
         {
             this.coursesService = coursesService;
             this.appCache = appCache;

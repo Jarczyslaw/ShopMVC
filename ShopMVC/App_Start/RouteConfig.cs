@@ -16,6 +16,18 @@ namespace ShopMVC
                 );
 
             routes.MapRoute(
+                name: "Category",
+                url: "category/{categoryId}",
+                defaults: new { controller = MVC.Courses.Name, action = MVC.Courses.ActionNames.List }
+                );
+
+            routes.MapRoute(
+                name: "Course",
+                url: "course/{courseId}",
+                defaults: new { controller = MVC.Courses.Name, action = MVC.Courses.ActionNames.Details }
+                );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
                 defaults: new { controller = MVC.Home.Name, action = MVC.Home.ActionNames.Index }

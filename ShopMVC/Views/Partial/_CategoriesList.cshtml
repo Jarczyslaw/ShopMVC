@@ -1,0 +1,18 @@
+﻿@using ShopMVC.DataAccess.Models;
+@using ShopMVC.Helpers;
+
+@model IEnumerable<Category>
+
+<h4>Categories</h4>
+<ul>
+    @{
+        foreach (var category in Model)
+        {
+            <li>
+                <a style="background-image: url('@Url.CategoryIcon(category.ImageFilePath)');" href="@Url.Action(MVC.Courses.List(category.CategoryId))">
+                    @category.Title
+                </a>
+            </li>
+        }
+    }
+</ul>

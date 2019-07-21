@@ -1,0 +1,11 @@
+﻿@model ShopMVC.ViewModels.CoursesListViewModel
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<h2>@ViewBag.Title</h2>
+<p>
+    Category name: @Model.Category.Title
+</p>
+@Html.Partial(MVC.Partial.Views._CoursesList, Model.Courses)

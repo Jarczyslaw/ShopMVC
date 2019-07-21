@@ -33,8 +33,6 @@ namespace ShopMVC
         public static void RegisterTypes(IUnityContainer container)
         {
             container.RegisterSingleton<ILoggerService, LoggerService>();
-            container.RegisterSingleton<IAppConfig, AppConfig>();
-
             container.RegisterSingleton<IHttpContextCacheProvider, HttpContextCacheProvider>();
             container.RegisterSingleton<IMemoryCacheProvider, MemoryCacheProvider>();
             container.RegisterSingleton<IAppCache, AppCache>();

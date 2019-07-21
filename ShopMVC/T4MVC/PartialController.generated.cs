@@ -38,8 +38,10 @@ namespace T4MVC
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string _CategoriesList = "_CategoriesList";
                 public readonly string _CoursesList = "_CoursesList";
             }
+            public readonly string _CategoriesList = "~/Views/Partial/_CategoriesList.cshtml";
             public readonly string _CoursesList = "~/Views/Partial/_CoursesList.cshtml";
         }
     }

@@ -167,6 +167,8 @@
     <Compile Include="Code\IAppCache.cs" />
     <Compile Include="Code\MemoryCacheProvider.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Code\CustomExceptionAttribute.cs" />
     <Compile Include="Code\HttpContextCacheProvider.cs" />
@@ -175,12 +177,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Code\IAppConfig.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Helpers\UrlHelpers.cs" />
     <Compile Include="Services\ILoggerService.cs" />
     <Compile Include="Services\LoggerService.cs" />
     <Compile Include="T4MVC\AdditionalLinks.cs" />
     <Compile Include="T4MVC\BaseController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\CategoriesController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\CoursesController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="T4MVC\HomeController.generated.cs">
@@ -297,6 +305,9 @@
     <Content Include="Views\Shared\_SubView.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Views\Partial\_CoursesList.cshtml" />
+    <Content Include="Views\Partial\_CategoriesList.cshtml" />
+    <Content Include="Views\Courses\List.cshtml" />
+    <Content Include="Views\Courses\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

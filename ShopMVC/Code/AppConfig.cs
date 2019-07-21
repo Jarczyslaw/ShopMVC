@@ -3,13 +3,14 @@ using System.Runtime.CompilerServices;
 
 namespace ShopMVC.Code
 {
-    public class AppConfig : IAppConfig
+    public static class AppConfig
     {
-        public string Test => GetConfigValue();
-
-        public string GetConfigValue([CallerMemberName]string key = null)
+        public static string GetConfigValue([CallerMemberName]string key = null)
         {
             return ConfigurationManager.AppSettings[key];
         }
+
+        public static string CategoriesIconsFolder => GetConfigValue();
+        public static string CoursesIconsFolder => GetConfigValue();
     }
 }
