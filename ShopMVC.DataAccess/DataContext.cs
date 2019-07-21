@@ -11,8 +11,7 @@ namespace ShopMVC.DataAccess
 
         public DataContext() : base(nameof(DataContext))
         {
-            // dont initialize database every time
-            //Database.SetInitializer(new DatabaseInitializer());
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
