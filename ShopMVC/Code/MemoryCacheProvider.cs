@@ -42,7 +42,7 @@ namespace ShopMVC.Code
 
         public void Set(string key, object value, TimeSpan duration)
         {
-            MemoryCache.Default.Set(key, value, DateTime.Now + duration);
+            MemoryCache.Default.Set(key, value, DateTime.Now);
         }
     }
 }

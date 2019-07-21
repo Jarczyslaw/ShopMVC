@@ -186,6 +186,9 @@
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="T4MVC\PartialController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4MVC\SharedController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -292,6 +295,7 @@
     <Content Include="Views\Home\Regulations.cshtml" />
     <Content Include="Views\Shared\_SubView.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
+    <Content Include="Views\Partial\_CoursesList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

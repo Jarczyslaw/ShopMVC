@@ -1,3 +1,7 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model ShopMVC.ViewModels.HomeIndexViewModel
+
+<h4>New courses</h4>
+@Html.Partial(MVC.Partial.Views._CoursesList, Model.NewCourses)
+
+<h4>Bestsellers</h4>
+@Html.Partial(MVC.Partial.Views._CoursesList, Model.Bestsellers)

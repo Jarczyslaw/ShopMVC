@@ -27,7 +27,7 @@ namespace ShopMVC.Controllers
                 TargetView = targetView,
                 TargetViewModel = viewModel
             };
-            return View(MVC.Shared.Views._Layout, subviewViewModel);
+            return View(MVC.Shared.Views._SubView, subviewViewModel);
         }
 
         protected override void OnException(ExceptionContext filterContext)

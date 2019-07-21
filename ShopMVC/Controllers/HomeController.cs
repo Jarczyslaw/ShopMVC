@@ -20,16 +20,16 @@ namespace ShopMVC.Controllers
 
         public virtual ActionResult Index()
         {
-            var newCourses = appCache.GetNewCourses(() => coursesService.GetNewCourses().ToList());
-            var newBestsellers = appCache.GetBestsellers(() => coursesService.GetBestsellers().ToList());
+            var newCourses = appCache.GetNewCourses(() => coursesService.GetNewCourses()
+                .ToList());
+            var newBestsellers = appCache.GetBestsellers(() => coursesService.GetBestsellers()
+                .ToList());
 
-            var vm = new HomeIndexViewModel()
+            return Subview(MVC.Home.Views.Index, new HomeIndexViewModel()
             {
                 NewCourses = newCourses,
                 Bestsellers = newBestsellers
-            };
-
-            return Subview(MVC.Home.Views.Index, vm);
+            });
         }
 
         public virtual ActionResult Pages(string page)

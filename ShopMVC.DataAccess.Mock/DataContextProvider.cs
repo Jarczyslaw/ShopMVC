@@ -12,11 +12,11 @@ namespace ShopMVC.DataAccess.Mock
         private readonly string categoriesKey = "CategoriesKey";
         private readonly string coursesKey = "CoursesKey";
 
-        private readonly ICacheProvider cacheProvider;
+        private readonly IMemoryCacheProvider memoryCacheProvider;
 
-        public DataContextProvider(ICacheProvider cacheProvider)
+        public DataContextProvider(IMemoryCacheProvider memoryCacheProvider)
         {
-            this.cacheProvider = cacheProvider;
+            this.memoryCacheProvider = memoryCacheProvider;
             Load();
         }
 
@@ -25,14 +25,15 @@ namespace ShopMVC.DataAccess.Mock
 
         public void Load()
         {
-            Categories = cacheProvider.GetOrSet(categoriesKey, () => SampleDataSource.GetCategories(), TimeSpan.MaxValue).ToList();
-            Courses = cacheProvider.GetOrSet(coursesKey, () => SampleDataSource.GetCourses(), TimeSpan.MaxValue).ToList();
+            var expiration = TimeSpan.FromDays(1);
+            Categories = memoryCacheProvider.GetOrSet(categoriesKey, SampleDataSource.GetCategories, expiration).ToList();
+            Courses = memoryCacheProvider.GetOrSet(coursesKey, SampleDataSource.GetCourses, expiration).ToList();
         }
 
         public void Save()
         {
-            cacheProvider.Set(categoriesKey, Categories, TimeSpan.MaxValue);
-            cacheProvider.Set(coursesKey, Courses, TimeSpan.MaxValue);
+            memoryCacheProvider.Set(categoriesKey, Categories, TimeSpan.MaxValue);
+            memoryCacheProvider.Set(coursesKey, Courses, TimeSpan.MaxValue);
         }
     }
 }

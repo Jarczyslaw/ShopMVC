@@ -1,5 +1,6 @@
 ﻿using ShopMVC.App_Start;
 using ShopMVC.Services;
+using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -10,7 +11,8 @@ namespace ShopMVC
 {
     public class MvcApplication : HttpApplication
     {
-        private ILoggerService logger;
+        private readonly Lazy<ILoggerService> logger = new Lazy<ILoggerService>(() => UnityConfig.Container.Resolve<ILoggerService>());
+        private ILoggerService LoggerInstance => logger.Value;
 
         protected void Application_Start()
         {
@@ -20,13 +22,12 @@ namespace ShopMVC
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            logger = UnityConfig.Container.Resolve<ILoggerService>();
-            logger.Info(nameof(Application_Start));
+            LoggerInstance.Info(nameof(Application_Start));
         }
 
         protected void Application_End()
         {
-            logger.Info(nameof(Application_End));
+            LoggerInstance.Info(nameof(Application_End));
         }
 
         protected void Application_Error()
@@ -34,7 +35,7 @@ namespace ShopMVC
             var exception = Server.GetLastError();
             if (exception != null)
             {
-                logger.Fatal(exception, "Application error");
+                LoggerInstance.Fatal(exception, "Application error");
             }
         }
     }
