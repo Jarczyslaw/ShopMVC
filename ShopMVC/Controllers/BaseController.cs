@@ -19,12 +19,11 @@ namespace ShopMVC.Controllers
 
         public virtual ActionResult Subview(string targetView, object viewModel)
         {
-            var subviewViewModel = new SubviewViewModel()
+            return View(MVC.Shared.Views._SubView, new SubviewViewModel()
             {
                 TargetView = targetView,
                 TargetViewModel = viewModel
-            };
-            return View(MVC.Shared.Views._SubView, subviewViewModel);
+            });
         }
 
         protected override void OnException(ExceptionContext filterContext)

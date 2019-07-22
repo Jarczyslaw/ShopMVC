@@ -19,13 +19,13 @@ namespace ShopMVC.Controllers
         public virtual ActionResult List(int categoryId)
         {
             var category = categoriesService.GetCategoryById(categoryId);
-            var cs = coursesService.GetCoursesInCategory(categoryId);
-            var vm = new CoursesListViewModel()
+            var courses = coursesService.GetCoursesInCategory(categoryId);
+
+            return Subview(MVC.Courses.Views.List, new CoursesListViewModel()
             {
                 Category = category,
-                Courses = cs
-            };
-            return Subview(MVC.Courses.Views.List, vm);
+                Courses = courses
+            });
         }
 
         public virtual ActionResult Details(int courseId)
@@ -33,12 +33,11 @@ namespace ShopMVC.Controllers
             var course = coursesService.GetCourseById(courseId);
             var category = categoriesService.GetCategoryById(course.CategoryId);
 
-            var vm = new CourseDetailsViewModel()
+            return Subview(MVC.Courses.Views.Details, new CourseDetailsViewModel()
             {
                 Course = course,
                 Category = category
-            };
-            return Subview(MVC.Courses.Views.Details, vm);
+            });
         }
     }
 }
