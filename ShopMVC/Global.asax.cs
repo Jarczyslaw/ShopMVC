@@ -56,7 +56,7 @@ namespace ShopMVC
 
         protected void Session_End()
         {
-            LogInfo($"Session ended. ID: {HttpContext.Current.Session.SessionID}. Sessions count: {ApplicationDataInstance.AddSession()}");
+            LogInfo($"Session ended. Sessions count: {ApplicationDataInstance.RemoveSession()}");
         }
 
         private void LogInfo(string message)
