@@ -9,7 +9,12 @@
         </div>
     </div>
     <div class="col-9">
-        <div>
+        <div class="row">
+            <div class="col" style="padding: 20px;">
+                @Html.MvcSiteMap().SiteMapPath()
+            </div>
+        </div>
+        <div class="row">
             <div class="col">
                 @Html.Partial(Model.TargetView, Model.TargetViewModel)
             </div>
