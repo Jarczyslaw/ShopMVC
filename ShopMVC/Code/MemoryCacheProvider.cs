@@ -6,9 +6,11 @@ namespace ShopMVC.Code
 {
     public class MemoryCacheProvider : IMemoryCacheProvider
     {
+        public MemoryCache Cache => MemoryCache.Default;
+
         public object Get(string key)
         {
-            return MemoryCache.Default.Get(key);
+            return Cache.Get(key);
         }
 
         public T Get<T>(string key)
@@ -32,17 +34,17 @@ namespace ShopMVC.Code
 
         public bool IsSet(string key)
         {
-            return MemoryCache.Default.Contains(key);
+            return Cache.Contains(key);
         }
 
         public void Remove(string key)
         {
-            MemoryCache.Default.Remove(key);
+            Cache.Remove(key);
         }
 
         public void Set(string key, object value, TimeSpan duration)
         {
-            MemoryCache.Default.Set(key, value, DateTime.Now);
+            Cache.Set(key, value, DateTime.Now);
         }
     }
 }

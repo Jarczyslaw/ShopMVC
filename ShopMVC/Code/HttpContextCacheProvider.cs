@@ -7,10 +7,7 @@ namespace ShopMVC.Code
 {
     public class HttpContextCacheProvider : IHttpContextCacheProvider
     {
-        public Cache Cache
-        {
-            get { return HttpContext.Current.Cache; }
-        }
+        public Cache Cache => HttpContext.Current.Cache;
 
         public object Get(string key)
         {
