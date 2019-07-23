@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using ShopMVC.DataAccess.Abstraction;
+using ShopMVC.Commons;
 
 namespace ShopMVC.Services
 {
@@ -42,6 +43,12 @@ namespace ShopMVC.Services
         {
             var courses = coursesRepository.GetMany(c => !c.Hidden);
             return courses.OrderBy(c => c.AddedDate).Take(count).ToList();
+        }
+
+        public IEnumerable<Course> GetCoursesByTerm(string term, int count)
+        {
+            var courses = coursesRepository.GetMany(c => !c.Hidden && StringUtils.IgnoreCaseContains(c.Title, term));
+            return courses.Take(count).OrderBy(c => c.Title);
         }
     }
 }

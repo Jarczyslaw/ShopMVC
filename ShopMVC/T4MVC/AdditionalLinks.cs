@@ -4,19 +4,21 @@
     {
         public static partial class Scripts
         {
-            public static readonly string jqueryBundle = "~/bundles/jquery";
-            public static readonly string bootstrapBundle = "~/bundles/bootstrap";
+            public static string JqueryBundle => "~/bundles/jquery";
+            public static string JqueryUiBundle => "~/bundles/jqueryUi";
+            public static string BootstrapBundle => "~/bundles/bootstrap";
         }
 
         public static class Styles
         {
-            public static readonly string cssBundle = "~/bundles/css";
+            public static string CssBundle => "~/bundles/css";
+            public static string UiCssBundle => "~/bundles/uiCss";
         }
     }
 
     public static class Sections
     {
-        public static readonly string AdditionalScripts = "AdditionalScripts";
-        public static readonly string AdditionalStyles = "AdditionalStyles";
+        public static string AdditionalScripts => "AdditionalScripts";
+        public static string AdditionalStyles => "AdditionalStyles";
     }
 }

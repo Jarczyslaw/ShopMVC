@@ -6,15 +6,24 @@ namespace ShopMVC
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle(Links.Bundles.Scripts.jqueryBundle).Include(
+            bundles.Add(new ScriptBundle(Links.Bundles.Scripts.JqueryBundle).Include(
                 "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle(Links.Bundles.Scripts.bootstrapBundle).Include(
+            bundles.Add(new ScriptBundle(Links.Bundles.Scripts.JqueryUiBundle).Include(
+                "~/Scripts/jquery-ui-{version}.js"));
+
+            bundles.Add(new ScriptBundle(Links.Bundles.Scripts.BootstrapBundle).Include(
                 "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new StyleBundle(Links.Bundles.Styles.cssBundle).Include(
+            bundles.Add(new StyleBundle(Links.Bundles.Styles.CssBundle).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/main.css"));
+
+            bundles.Add(new StyleBundle(Links.Bundles.Styles.UiCssBundle).Include(
+                "~/Content/themes/base/core.css",
+                "~/Content/themes/base/autocomplete.css",
+                "~/Content/themes/base/theme.css",
+                "~/Content/themes/base/menu.css"));
         }
     }
 }

@@ -14,5 +14,7 @@ namespace ShopMVC.Services
         IEnumerable<Course> GetCoursesInCategory(int categoryId);
 
         IEnumerable<Course> GetAll();
+
+        IEnumerable<Course> GetCoursesByTerm(string term, int count);
     }
 }

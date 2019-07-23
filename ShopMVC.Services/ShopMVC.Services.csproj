@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ShopMVC.Commons\ShopMVC.Commons.csproj">
+      <Project>{EE479E3C-C12F-4CE8-BBDB-7EE08E188073}</Project>
+      <Name>ShopMVC.Commons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShopMVC.DataAccess.Abstraction\ShopMVC.DataAccess.Abstraction.csproj">
       <Project>{1E74F606-3F27-45FE-9611-28E4203C504A}</Project>
       <Name>ShopMVC.DataAccess.Abstraction</Name>

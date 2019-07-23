@@ -1,5 +1,6 @@
 ﻿using ShopMVC.Services;
 using ShopMVC.ViewModels;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace ShopMVC.Controllers
@@ -18,26 +19,28 @@ namespace ShopMVC.Controllers
 
         public virtual ActionResult List(int categoryId)
         {
-            var category = categoriesService.GetCategoryById(categoryId);
-            var courses = coursesService.GetCoursesInCategory(categoryId);
-
             return Subview(MVC.Courses.Views.List, new CoursesListViewModel()
             {
-                Category = category,
-                Courses = courses
+                Category = categoriesService.GetCategoryById(categoryId),
+                Courses = coursesService.GetCoursesInCategory(categoryId)
             });
         }
 
         public virtual ActionResult Details(int courseId)
         {
             var course = coursesService.GetCourseById(courseId);
-            var category = categoriesService.GetCategoryById(course.CategoryId);
-
             return Subview(MVC.Courses.Views.Details, new CourseDetailsViewModel()
             {
                 Course = course,
-                Category = category
+                Category = categoriesService.GetCategoryById(course.CategoryId)
             });
+        }
+
+        public virtual ActionResult CoursesPrompt(string term)
+        {
+            var courses = coursesService.GetCoursesByTerm(term, 5)
+                .Select(c => new { label = c.Title });
+            return Json(courses, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -10,8 +10,12 @@
     <title>@GetTitle()</title>
     <link rel="icon" href="@Url.Content(Links.Content.favicon_ico)" />
 
-    @Styles.Render(Links.Bundles.Styles.cssBundle)
+    @Styles.Render(Links.Bundles.Styles.CssBundle)
     @RenderSection(Links.Sections.AdditionalStyles, false)
+
+    @Scripts.Render(Links.Bundles.Scripts.JqueryBundle)
+    @Scripts.Render(Links.Bundles.Scripts.BootstrapBundle)
+    @RenderSection(Links.Sections.AdditionalScripts, false)
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -53,10 +57,6 @@
             Copyright &copy; @DateTime.Now.Year - Courses Shop
         </div>
     </footer>
-
-    @Scripts.Render(Links.Bundles.Scripts.jqueryBundle)
-    @Scripts.Render(Links.Bundles.Scripts.bootstrapBundle)
-    @RenderSection(Links.Sections.AdditionalScripts, false)
 </body>
 </html>
 

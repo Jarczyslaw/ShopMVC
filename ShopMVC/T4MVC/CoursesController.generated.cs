@@ -70,6 +70,12 @@ namespace ShopMVC.Controllers
         }
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult CoursesPrompt()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CoursesPrompt);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult Subview()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Subview);
@@ -92,6 +98,7 @@ namespace ShopMVC.Controllers
         {
             public readonly string List = "List";
             public readonly string Details = "Details";
+            public readonly string CoursesPrompt = "CoursesPrompt";
             public readonly string Subview = "Subview";
         }
 
@@ -100,6 +107,7 @@ namespace ShopMVC.Controllers
         {
             public const string List = "List";
             public const string Details = "Details";
+            public const string CoursesPrompt = "CoursesPrompt";
             public const string Subview = "Subview";
         }
 
@@ -119,6 +127,14 @@ namespace ShopMVC.Controllers
         public class ActionParamsClass_Details
         {
             public readonly string courseId = "courseId";
+        }
+        static readonly ActionParamsClass_CoursesPrompt s_params_CoursesPrompt = new ActionParamsClass_CoursesPrompt();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_CoursesPrompt CoursesPromptParams { get { return s_params_CoursesPrompt; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_CoursesPrompt
+        {
+            public readonly string term = "term";
         }
         static readonly ActionParamsClass_Subview s_params_Subview = new ActionParamsClass_Subview();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -173,6 +189,18 @@ namespace ShopMVC.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Details);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "courseId", courseId);
             DetailsOverride(callInfo, courseId);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void CoursesPromptOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string term);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult CoursesPrompt(string term)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CoursesPrompt);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "term", term);
+            CoursesPromptOverride(callInfo, term);
             return callInfo;
         }
 
