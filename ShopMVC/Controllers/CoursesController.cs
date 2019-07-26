@@ -1,5 +1,7 @@
-﻿using ShopMVC.Services;
+﻿using ShopMVC.DataAccess.Models;
+using ShopMVC.Services;
 using ShopMVC.ViewModels;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -8,6 +10,7 @@ namespace ShopMVC.Controllers
     public partial class CoursesController : BaseController
     {
         private readonly ICoursesService coursesService;
+        // TODO - remove it from here
         private readonly ICategoriesService categoriesService;
 
         public CoursesController(ICoursesService coursesService, ICategoriesService categoriesService, ILoggerService logger)
@@ -17,8 +20,13 @@ namespace ShopMVC.Controllers
             this.categoriesService = categoriesService;
         }
 
-        public virtual ActionResult List(int categoryId)
+        public virtual ActionResult List(int categoryId, string searchQuery = null)
         {
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView(MVC.Partial.Views._CoursesList, coursesService.GetCoursesByTerm(searchQuery, 5));
+            }
+
             return Subview(MVC.Courses.Views.List, new CoursesListViewModel()
             {
                 Category = categoriesService.GetCategoryById(categoryId),

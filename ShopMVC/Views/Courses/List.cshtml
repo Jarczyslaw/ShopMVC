@@ -5,8 +5,13 @@
 }
 
 <div class="row">
-    <form id="search-form">
-        <input id="search-filter" type="search" name="searchQuery" data-autocomplete-source="@Url.Action(MVC.Courses.ActionNames.CoursesPrompt)" placeholder="Search for courses..." style="width: 400px;" />
+    <form id="search-form" method="get" data-ajax="true" data-ajax-target="#courses">
+        <input id="search-filter" 
+               type="search"
+               name="searchQuery"
+               data-autocomplete-source="@Url.Action(MVC.Courses.ActionNames.CoursesPrompt)"
+               placeholder="Search for courses..."
+               style="width: 400px;" />
     </form>
 </div>
 
@@ -15,7 +20,10 @@
     Category name: @Model.Category.Title
 </p>
 
-@Html.Partial(MVC.Partial.Views._CoursesList, Model.Courses)
+<div id="courses">
+    @Html.Partial(MVC.Partial.Views._CoursesList, Model.Courses)
+</div>
+
 
 <script>
     $(function () {
@@ -35,6 +43,26 @@
             $input.autocomplete(options);
         };
 
+        var ajaxSubmit = function () {
+            var $form = $(this);
+
+            var settings = {
+                data: $(this).serialize(),
+                url: $(this).attr("action"),
+                type: $(this).attr("method")
+            }
+
+            $.ajax(settings).done(function (result) {
+                var $target = $($form.data("ajax-target"));
+                var $content = $(result);
+                $($target).replaceWith($content);
+                $content.effect("slide");
+            });
+
+            return false;
+        }
+
         $("#search-filter").each(setupAutoComplete);
+        $("#search-form").submit(ajaxSubmit);
     });
 </script>

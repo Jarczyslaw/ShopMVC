@@ -119,6 +119,7 @@ namespace ShopMVC.Controllers
         public class ActionParamsClass_List
         {
             public readonly string categoryId = "categoryId";
+            public readonly string searchQuery = "searchQuery";
         }
         static readonly ActionParamsClass_Details s_params_Details = new ActionParamsClass_Details();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -169,14 +170,15 @@ namespace ShopMVC.Controllers
         public T4MVC_CoursesController() : base(Dummy.Instance) { }
 
         [NonAction]
-        partial void ListOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int categoryId);
+        partial void ListOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int categoryId, string searchQuery);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult List(int categoryId)
+        public override System.Web.Mvc.ActionResult List(int categoryId, string searchQuery)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.List);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "categoryId", categoryId);
-            ListOverride(callInfo, categoryId);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "searchQuery", searchQuery);
+            ListOverride(callInfo, categoryId, searchQuery);
             return callInfo;
         }
 
