@@ -2,6 +2,7 @@
 using ShopMVC.DataAccess.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ShopMVC.Services
 {
@@ -19,6 +20,11 @@ namespace ShopMVC.Services
         public IEnumerable<Category> GetAll()
         {
             return categoriesRepository.GetAll();
+        }
+
+        public IEnumerable<Category> GetCategoriesList()
+        {
+            return GetAll().OrderBy(c => c.Title);
         }
 
         public Category GetCategoryById(int id)

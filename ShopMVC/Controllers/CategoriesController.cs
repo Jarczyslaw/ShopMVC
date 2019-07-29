@@ -18,7 +18,8 @@ namespace ShopMVC.Controllers
         [OutputCache(Duration = 60 * 60 * 24)]
         public virtual ActionResult List()
         {
-            var categories = categoriesService.GetAll().OrderBy(c => c.Title).ToList();
+            var categories = categoriesService.GetCategoriesList()
+                .ToList();
             return PartialView(MVC.Partial.Views._CategoriesList, categories);
         }
     }

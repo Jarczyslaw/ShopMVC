@@ -1,7 +1,5 @@
-﻿using ShopMVC.DataAccess.Models;
-using ShopMVC.Services;
+﻿using ShopMVC.Services;
 using ShopMVC.ViewModels;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -10,7 +8,6 @@ namespace ShopMVC.Controllers
     public partial class CoursesController : BaseController
     {
         private readonly ICoursesService coursesService;
-        // TODO - remove it from here
         private readonly ICategoriesService categoriesService;
 
         public CoursesController(ICoursesService coursesService, ICategoriesService categoriesService, ILoggerService logger)

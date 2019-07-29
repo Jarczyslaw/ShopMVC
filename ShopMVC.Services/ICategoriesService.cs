@@ -8,5 +8,6 @@ namespace ShopMVC.Services
         Category GetCategoryById(int id);
 
         IEnumerable<Category> GetAll();
+        IEnumerable<Category> GetCategoriesList();
     }
 }
