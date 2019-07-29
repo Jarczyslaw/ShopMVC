@@ -36,6 +36,7 @@ namespace ShopMVC
             container.RegisterSingleton<IHttpContextCacheProvider, HttpContextCacheProvider>();
             container.RegisterSingleton<IMemoryCacheProvider, MemoryCacheProvider>();
             container.RegisterSingleton<IAppCache, AppCache>();
+            container.RegisterSingleton<ISessionProvider, SessionProvider>();
 
             RegisterDataAccessDependencies(container);
             RegisterServices(container);
