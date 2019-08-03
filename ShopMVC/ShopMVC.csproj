@@ -167,6 +167,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BaseDataAccessUnityConfig.cs" />
+    <Compile Include="App_Start\MockDataAccessUnityConfig.cs" />
+    <Compile Include="App_Start\DataAccessUnityConfig.cs" />
     <Compile Include="Code\AppCache.cs" />
     <Compile Include="Code\AppConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

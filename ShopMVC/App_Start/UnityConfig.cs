@@ -1,17 +1,6 @@
+using ShopMVC.App_Start;
 using ShopMVC.Code;
 using ShopMVC.Commons;
-
-#if MOCK
-
-using ShopMVC.DataAccess.Mock;
-
-#else
-
-using ShopMVC.DataAccess;
-
-#endif
-
-using ShopMVC.DataAccess.Abstraction;
 using ShopMVC.Services;
 using System;
 using Unity;
@@ -42,32 +31,21 @@ namespace ShopMVC
             RegisterServices(container);
         }
 
+        private static void RegisterDataAccessDependencies(IUnityContainer container)
+        {
+            BaseDataAccessUnityConfig config = null;
+#if MOCK
+            config = new MockDataAccessUnityConfig();
+#else
+            config = new DataAccessUnityConfig();
+#endif
+            config.RegisterTypes(container);
+        }
+
         private static void RegisterServices(IUnityContainer container)
         {
             container.RegisterForRequest<ICoursesService, CoursesService>();
             container.RegisterForRequest<ICategoriesService, CategoriesService>();
         }
-
-#if MOCK
-
-        private static void RegisterDataAccessDependencies(IUnityContainer container)
-        {
-            container.RegisterForRequest<IUnitOfWork, UnitOfWork>();
-            container.RegisterForRequest<IDataContextProvider, DataContextProvider>();
-            container.RegisterForRequest<ICoursesRepository, CoursesRepository>();
-            container.RegisterForRequest<ICategoriesRepository, CategoriesRepository>();
-        }
-
-#else
-
-        private static void RegisterDataAccessDependencies(IUnityContainer container)
-        {
-            container.RegisterForRequest<IUnitOfWork, UnitOfWork>();
-            container.RegisterForRequest<IDataContextFactory, DataContextFactory>();
-            container.RegisterForRequest<ICoursesRepository, CoursesRepository>();
-            container.RegisterForRequest<ICategoriesRepository, CategoriesRepository>();
-        }
-
-#endif
     }
 }
