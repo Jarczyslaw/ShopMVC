@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using ShopMVC.Commons;
+using System.Web;
 using System.Web.SessionState;
 
 namespace ShopMVC.Code

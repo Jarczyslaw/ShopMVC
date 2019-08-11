@@ -1,4 +1,4 @@
-﻿namespace ShopMVC.Code
+﻿namespace ShopMVC.Commons
 {
     public interface ISessionProvider
     {

@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopMVC.DataAccess.Mock", "ShopMVC.DataAccess.Mock\ShopMVC.DataAccess.Mock.csproj", "{E86AE151-4292-483F-8203-3AED9921A42A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopMVC.Models", "ShopMVC.Models\ShopMVC.Models.csproj", "{720C4F51-3A97-4C41-81D5-345AA8C2AF72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_Mock|Any CPU = Debug_Mock|Any CPU
@@ -92,6 +94,12 @@ Global
 		{E86AE151-4292-483F-8203-3AED9921A42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E86AE151-4292-483F-8203-3AED9921A42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E86AE151-4292-483F-8203-3AED9921A42A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{720C4F51-3A97-4C41-81D5-345AA8C2AF72}.Debug_Mock|Any CPU.ActiveCfg = Debug|Any CPU
+		{720C4F51-3A97-4C41-81D5-345AA8C2AF72}.Debug_Mock|Any CPU.Build.0 = Debug|Any CPU
+		{720C4F51-3A97-4C41-81D5-345AA8C2AF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720C4F51-3A97-4C41-81D5-345AA8C2AF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720C4F51-3A97-4C41-81D5-345AA8C2AF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720C4F51-3A97-4C41-81D5-345AA8C2AF72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
