@@ -1,5 +1,7 @@
 ﻿using ShopMVC.Commons;
+using ShopMVC.DataAccess.Models;
 using ShopMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,19 +10,17 @@ namespace ShopMVC.Services
     public class ShoppingCartService : IShoppingCartService
     {
         private readonly ISessionProvider sessionProvider;
-        private readonly ICoursesService coursesService;
 
-        private readonly string cartContentKey = "CartContentKey";
+        private string CartContentKey => nameof(CartContentKey);
 
-        public ShoppingCartService(ISessionProvider sessionProvider, ICoursesService coursesService)
+        public ShoppingCartService(ISessionProvider sessionProvider)
         {
             this.sessionProvider = sessionProvider;
-            this.coursesService = coursesService;
         }
 
         public List<ShoppingCartPosition> GetContent()
         {
-            var result = sessionProvider.Get<List<ShoppingCartPosition>>(cartContentKey);
+            var result = sessionProvider.Get<List<ShoppingCartPosition>>(CartContentKey);
             if (result == null)
             {
                 result = new List<ShoppingCartPosition>();
@@ -38,27 +38,24 @@ namespace ShopMVC.Services
             return GetContent().Sum(c => c.Value);
         }
 
-        public void Add(int courseId)
+        public void Add(Course course)
         {
             var cart = GetContent();
-            var cartPosition = cart.SingleOrDefault(c => c.Course.CourseId == courseId);
+            var cartPosition = cart.SingleOrDefault(c => c.Course.CourseId == course.CourseId);
             if (cartPosition == null)
             {
-                var course = coursesService.GetCourseById(courseId);
-                if (course != null)
+                cart.Add(new ShoppingCartPosition
                 {
-                    cart.Add(new ShoppingCartPosition
-                    {
-                        Quantity = 1,
-                        Course = course
-                    });
-                }
+                    Quantity = 1,
+                    Course = course,
+                    Price = course.Price
+                });
             }
             else
             {
                 cartPosition.Quantity++;
             }
-            sessionProvider.Set(cartContentKey, cart);
+            sessionProvider.Set(CartContentKey, cart);
         }
 
         public void Remove(int courseId)
@@ -76,18 +73,31 @@ namespace ShopMVC.Services
                     cart.Remove(cartPosition);
                 }
             }
-            sessionProvider.Set(cartContentKey, cart);
+            sessionProvider.Set(CartContentKey, cart);
         }
 
         public void Clear()
         {
-            sessionProvider.Set<List<ShoppingCartPosition>>(cartContentKey, null);
+            sessionProvider.Set<List<ShoppingCartPosition>>(CartContentKey, null);
         }
 
-        public Order CreateOrder()
+        public Order CreateOrder(string userId)
         {
-            // TODO
-            return new Order();
+            var cart = GetContent();
+            var order = new Order
+            {
+                AddedDate = DateTime.Now,
+                UserId = userId
+            };
+
+            order.OrderItems = cart.Select(c => new OrderItem
+            {
+                CourseId = c.Course.CourseId,
+                Quantity = c.Quantity,
+                Price = c.Price
+            }).ToList();
+
+            return order;
         }
     }
 }

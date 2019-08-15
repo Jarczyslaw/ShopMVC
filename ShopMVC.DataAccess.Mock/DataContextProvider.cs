@@ -9,8 +9,10 @@ namespace ShopMVC.DataAccess.Mock
 {
     public class DataContextProvider : IDataContextProvider
     {
-        private readonly string categoriesKey = "CategoriesKey";
-        private readonly string coursesKey = "CoursesKey";
+        private string CategoriesKey => nameof(CategoriesKey);
+        private string CoursesKey => nameof(CoursesKey);
+        private string OrdersKey => nameof(OrdersKey);
+        private string OrderItemsKey => nameof(OrderItemsKey);
 
         private readonly IMemoryCacheProvider memoryCacheProvider;
 
@@ -20,20 +22,30 @@ namespace ShopMVC.DataAccess.Mock
             Load();
         }
 
-        public List<Category> Categories { get; set; }
-        public List<Course> Courses { get; set; }
+        public List<Category> Categories { get; set; } = new List<Category>();
+        public List<Course> Courses { get; set; } = new List<Course>();
+        public List<Order> Orders { get; set; } = new List<Order>();
+        public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
         public void Load()
         {
             var expiration = TimeSpan.FromDays(1);
-            Categories = memoryCacheProvider.GetOrSet(categoriesKey, SampleDataSource.GetCategories, expiration).ToList();
-            Courses = memoryCacheProvider.GetOrSet(coursesKey, SampleDataSource.GetCourses, expiration).ToList();
+            Categories = memoryCacheProvider.GetOrSet(CategoriesKey, SampleDataSource.GetCategories, expiration)
+                .ToList();
+            Courses = memoryCacheProvider.GetOrSet(CoursesKey, SampleDataSource.GetCourses, expiration)
+                .ToList();
+            Orders = memoryCacheProvider.GetOrSet(OrdersKey, () => new List<Order>(), expiration)
+                .ToList();
+            OrderItems = memoryCacheProvider.GetOrSet(OrderItemsKey, () => new List<OrderItem>(), expiration)
+                .ToList();
         }
 
         public void Save()
         {
-            memoryCacheProvider.Set(categoriesKey, Categories, TimeSpan.MaxValue);
-            memoryCacheProvider.Set(coursesKey, Courses, TimeSpan.MaxValue);
+            memoryCacheProvider.Set(CategoriesKey, Categories, TimeSpan.MaxValue);
+            memoryCacheProvider.Set(CoursesKey, Courses, TimeSpan.MaxValue);
+            memoryCacheProvider.Set(OrdersKey, Orders, TimeSpan.MaxValue);
+            memoryCacheProvider.Set(OrderItemsKey, OrderItemsKey, TimeSpan.MaxValue);
         }
     }
 }

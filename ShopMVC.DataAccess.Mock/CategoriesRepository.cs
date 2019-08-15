@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Linq;
 using Nelibur.ObjectMapper;
+using ShopMVC.Commons;
 
 namespace ShopMVC.DataAccess.Mock
 {
@@ -66,14 +67,7 @@ namespace ShopMVC.DataAccess.Mock
 
         private int GetNextId()
         {
-            if (dataContextProvider.Categories?.Any() != null)
-            {
-                return dataContextProvider.Categories.Max(c => c.CategoryId);
-            }
-            else
-            {
-                return default;
-            }
+            return dataContextProvider.Categories.SafeMax(c => c.CategoryId) + 1;
         }
     }
 }

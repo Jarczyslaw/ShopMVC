@@ -13,6 +13,7 @@ namespace ShopMVC.App_Start
             container.RegisterForRequest<IDataContextFactory, DataContextFactory>();
             container.RegisterForRequest<ICoursesRepository, CoursesRepository>();
             container.RegisterForRequest<ICategoriesRepository, CategoriesRepository>();
+            container.RegisterForRequest<IOrdersRepository, OrdersRepository>();
         }
     }
 }

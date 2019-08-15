@@ -6,8 +6,10 @@ namespace ShopMVC.DataAccess
 {
     public class DataContext : DbContext
     {
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderItem> OrderItems { get; set; }
 
         public DataContext() : base(nameof(DataContext))
         {

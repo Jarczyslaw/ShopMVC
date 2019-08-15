@@ -7,6 +7,7 @@ namespace ShopMVC.DataAccess.Mock
     {
         List<Category> Categories { get; }
         List<Course> Courses { get; }
+        List<Order> Orders { get; }
         void Load();
         void Save();
     }

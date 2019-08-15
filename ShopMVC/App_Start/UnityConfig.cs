@@ -46,6 +46,7 @@ namespace ShopMVC
         {
             container.RegisterForRequest<ICoursesService, CoursesService>();
             container.RegisterForRequest<ICategoriesService, CategoriesService>();
+            container.RegisterSingleton<IShoppingCartService, ShoppingCartService>();
         }
     }
 }

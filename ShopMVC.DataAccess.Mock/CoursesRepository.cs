@@ -1,4 +1,5 @@
 ﻿using Nelibur.ObjectMapper;
+using ShopMVC.Commons;
 using ShopMVC.DataAccess.Abstraction;
 using ShopMVC.DataAccess.Models;
 using System;
@@ -66,14 +67,7 @@ namespace ShopMVC.DataAccess.Mock
 
         private int GetNextId()
         {
-            if (dataContextProvider.Categories?.Any() != null)
-            {
-                return dataContextProvider.Categories.Max(c => c.CategoryId);
-            }
-            else
-            {
-                return default;
-            }
+            return dataContextProvider.Categories.SafeMax(c => c.CategoryId) + 1;
         }
     }
 }

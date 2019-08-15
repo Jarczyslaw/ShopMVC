@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICacheProvider.cs" />
+    <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="IHttpContextCacheProvider.cs" />
     <Compile Include="IMemoryCacheProvider.cs" />
     <Compile Include="ISessionProvider.cs" />

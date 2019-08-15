@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriesRepository.cs" />
+    <Compile Include="OrdersRepository.cs" />
     <Compile Include="CoursesRepository.cs" />
     <Compile Include="DataContextProvider.cs" />
     <Compile Include="IDataContextProvider.cs" />

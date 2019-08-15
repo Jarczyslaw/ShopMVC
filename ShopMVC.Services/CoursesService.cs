@@ -47,7 +47,7 @@ namespace ShopMVC.Services
 
         public IEnumerable<Course> GetCoursesByTerm(string term, int count)
         {
-            var courses = coursesRepository.GetMany(c => !c.Hidden && StringUtils.IgnoreCaseContains(c.Title, term));
+            var courses = coursesRepository.GetAll().Where(c => !c.Hidden && StringUtils.IgnoreCaseContains(c.Title, term));
             return courses.Take(count).OrderBy(c => c.Title);
         }
     }
