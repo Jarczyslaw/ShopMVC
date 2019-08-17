@@ -1,0 +1,7 @@
+﻿@using ShopMVC.ViewModels
+
+@model ShoppingCartLinkViewModel
+
+<a href="@Url.Action(MVC.ShoppingCart.Index())" class="basket">
+    Basket (@Model.Count) - @Model.ValueDisp
+</a>

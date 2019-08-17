@@ -1,6 +1,8 @@
 using ShopMVC.App_Start;
 using ShopMVC.Code;
 using ShopMVC.Commons;
+using ShopMVC.Commons.Abstraction;
+using ShopMVC.Commons.Extensions;
 using ShopMVC.Services;
 using System;
 using Unity;
@@ -46,7 +48,7 @@ namespace ShopMVC
         {
             container.RegisterForRequest<ICoursesService, CoursesService>();
             container.RegisterForRequest<ICategoriesService, CategoriesService>();
-            container.RegisterSingleton<IShoppingCartService, ShoppingCartService>();
+            container.RegisterForRequest<IShoppingCartService, ShoppingCartService>();
         }
     }
 }

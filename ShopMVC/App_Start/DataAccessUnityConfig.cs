@@ -1,4 +1,5 @@
 ﻿using ShopMVC.Commons;
+using ShopMVC.Commons.Extensions;
 using ShopMVC.DataAccess;
 using ShopMVC.DataAccess.Abstraction;
 using Unity;

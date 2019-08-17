@@ -1,5 +1,6 @@
 ﻿using Nelibur.ObjectMapper;
 using ShopMVC.Commons;
+using ShopMVC.Commons.Extensions;
 using ShopMVC.DataAccess.Abstraction;
 using ShopMVC.DataAccess.Models;
 using System;

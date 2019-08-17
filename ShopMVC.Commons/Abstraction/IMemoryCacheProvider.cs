@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Caching;
 
-namespace ShopMVC.Commons
+namespace ShopMVC.Commons.Abstraction
 {
     public interface IMemoryCacheProvider : ICacheProvider
     {

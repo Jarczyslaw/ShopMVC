@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShopMVC.Commons
+namespace ShopMVC.Commons.Utils
 {
     public static class StringUtils
     {

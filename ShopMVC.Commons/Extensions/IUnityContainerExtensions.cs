@@ -1,7 +1,7 @@
 ﻿using Unity;
 using Unity.AspNet.Mvc;
 
-namespace ShopMVC.Commons
+namespace ShopMVC.Commons.Extensions
 {
     public static class IUnityContainerExtensions
     {

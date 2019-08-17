@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShopMVC.Commons
+namespace ShopMVC.Commons.Abstraction
 {
     public interface ICacheProvider
     {

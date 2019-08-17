@@ -1,4 +1,4 @@
-﻿using ShopMVC.Commons;
+﻿using ShopMVC.Commons.Abstraction;
 using ShopMVC.DataAccess.Models;
 using ShopMVC.Models;
 using System;

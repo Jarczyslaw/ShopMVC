@@ -1,4 +1,4 @@
-﻿namespace ShopMVC.Commons
+﻿namespace ShopMVC.Commons.Abstraction
 {
     public interface ISessionProvider
     {

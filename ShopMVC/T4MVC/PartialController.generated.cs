@@ -40,9 +40,11 @@ namespace T4MVC
             {
                 public readonly string _CategoriesList = "_CategoriesList";
                 public readonly string _CoursesList = "_CoursesList";
+                public readonly string _ShoppingCartLink = "_ShoppingCartLink";
             }
             public readonly string _CategoriesList = "~/Views/Partial/_CategoriesList.cshtml";
             public readonly string _CoursesList = "~/Views/Partial/_CoursesList.cshtml";
+            public readonly string _ShoppingCartLink = "~/Views/Partial/_ShoppingCartLink.cshtml";
         }
     }
 

@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Linq;
 using Nelibur.ObjectMapper;
 using ShopMVC.Commons;
+using ShopMVC.Commons.Extensions;
 
 namespace ShopMVC.DataAccess.Mock
 {

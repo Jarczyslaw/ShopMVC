@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ShopMVC.Commons
+namespace ShopMVC.Commons.Extensions
 {
     public static class IEnumerableExtensions
     {

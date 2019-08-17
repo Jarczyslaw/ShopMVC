@@ -35,11 +35,9 @@
                 <li class="nav-item">
                     @GetStaticPageLink(MVC.Home.Views.ViewNames.Contact)
                 </li>
-            </ul>
+            </ul> 
             <div class="my-2 my-lg-0 text-light">
-                <a href="" class="basket">
-                    Basket (0)
-                </a>
+                @Html.Action(MVC.ShoppingCart.Actions.GetCartLink())
             </div>
         </div>
     </nav>
