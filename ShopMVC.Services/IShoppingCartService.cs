@@ -14,7 +14,11 @@ namespace ShopMVC.Services
 
         void Add(Course course);
 
-        void Remove(int courseId);
+        int GetPositionCount(int courseId);
+
+        decimal GetPositionValue(int courseId);
+
+        int Remove(int courseId);
 
         void Clear();
 

@@ -32,6 +32,20 @@ namespace ShopMVC.Controllers
             return RedirectToAction(MVC.ShoppingCart.Index());
         }
 
+        [HttpPost]
+        public virtual ActionResult Remove(int courseId)
+        {
+            var positionCount = shoppingCartService.Remove(courseId);
+            return Json(new ShoppingCartRemoveViewModel
+            {
+                PositionCourseId = courseId,
+                CartCount = shoppingCartService.GetContentCount(),
+                CartValue = shoppingCartService.GetContentValue().ToCurrency(),
+                PositionCount = positionCount,
+                PositionValue = shoppingCartService.GetPositionValue(courseId).ToCurrency(),
+            });
+        }
+
         [ChildActionOnly]
         public virtual ActionResult GetCartCount()
         {

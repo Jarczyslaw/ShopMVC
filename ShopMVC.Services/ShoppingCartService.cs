@@ -58,15 +58,29 @@ namespace ShopMVC.Services
             sessionProvider.Set(CartContentKey, cart);
         }
 
-        public void Remove(int courseId)
+        public int GetPositionCount(int courseId)
+        {
+            var position = GetContent().SingleOrDefault(p => p.Course.CourseId == courseId);
+            return position == null ? 0 : position.Quantity;
+        }
+
+        public decimal GetPositionValue(int courseId)
+        {
+            var position = GetContent().SingleOrDefault(p => p.Course.CourseId == courseId);
+            return position == null ? 0 : position.Value;
+        }
+
+        public int Remove(int courseId)
         {
             var cart = GetContent();
             var cartPosition = cart.SingleOrDefault(c => c.Course.CourseId == courseId);
+            var newCount = 0;
             if (cartPosition != null)
             {
                 if (cartPosition.Quantity > 1)
                 {
                     cartPosition.Quantity--;
+                    newCount = cartPosition.Quantity;
                 }
                 else
                 {
@@ -74,6 +88,7 @@ namespace ShopMVC.Services
                 }
             }
             sessionProvider.Set(CartContentKey, cart);
+            return newCount;
         }
 
         public void Clear()

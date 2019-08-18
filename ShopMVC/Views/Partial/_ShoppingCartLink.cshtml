@@ -3,5 +3,5 @@
 @model ShoppingCartLinkViewModel
 
 <a href="@Url.Action(MVC.ShoppingCart.ActionNames.Index, MVC.ShoppingCart.Name)" class="linkButton">
-    Basket (@Model.Count) - @Model.ValueDisp
+    Basket (<span id="cart-count">@Model.Count</span>) - <span id="cart-value">@Model.ValueDisp</span>
 </a>

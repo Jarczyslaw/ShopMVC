@@ -8,73 +8,114 @@
 
 <h2>Shopping cart</h2>
 
-@if (Model.PositionsCount == 0)
-{
-    <p>Your cart is empty</p>
-}
-else
-{
-    <table style="margin: 10px; width: 100%">
-        <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Price
-                </th>
-                <th>
-                    Quantity
-                </th>
-                <th>
-                    Value
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        @foreach (var position in Model.Positions)
-        {
-            var id = @position.Course.CourseId;
-            <tr id="cart-position-@id">
-                <td>
-                    <a href="@Url.Action(MVC.Courses.ActionNames.Details, MVC.Courses.Name, new { courseId = id })">
-                        @position.Course.Title
-                    </a>
-                </td>
-                <td>
-                    @position.PriceDisp
-                </td>
-                <td>
-                    <span id="cart-position-count-@id">
-                        @position.Quantity
-                    </span>
-                </td>
-                <td>
-                    @position.ValueDisp
-                </td>
-                <td>
-                    <a href="#" data-id="@id">Remove</a>
-                </td>
-            </tr>
-        }
-</table>
-
-    <div>
-        Total: <span>@Model.TotalValue</span>
-    </div>
-
-    if (Model.ContainsPayments)
+<div id="positions">
+    @if (Model.PositionsCount == 0)
     {
-        <div class="row" style="margin: 5px; float: right;">
-            <a href="" class="linkButton">
-                Pay
-            </a>
-        </div>
+        <p>Your cart is empty</p>
     }
-}
+    else
+    {
+        <table style="margin: 10px; width: 100%">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Value
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var position in Model.Positions)
+                {
+                    var id = @position.Course.CourseId;
+                    <tr id="cart-position-@id">
+                        <td>
+                            <a href="@Url.Action(MVC.Courses.ActionNames.Details, MVC.Courses.Name, new { courseId = id })">
+                                @position.Course.Title
+                            </a>
+                        </td>
+                        <td>
+                            @position.PriceDisp
+                        </td>
+                        <td>
+                            <span id="cart-position-count-@id">
+                                @position.Quantity
+                            </span>
+                        </td>
+                        <td>
+                            <span id="cart-position-value-@id">
+                                @position.ValueDisp
+                            </span>
+                        </td>
+                        <td>
+                            <a href="#" class="remove" data-id="@id">Remove</a>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="3" align="right">
+                        <strong>
+                            Total:
+                        </strong>
+                    </td>
+                    <td>
+                        <span id="total-value">@Model.TotalValue</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        if (Model.ContainsPayments)
+        {
+            <div class="row" style="margin: 5px; float: right;">
+                <a href="" class="linkButton">
+                    Pay
+                </a>
+            </div>
+        }
+    }
+</div>
 
 <div class="row" style="margin: 5px;">
     <a href="@Url.Content("~/")" class="linkButton">
         Continue to shop
     </a>
 </div>
+
+@section AdditionalScripts
+{
+    @Scripts.Render(Links.Bundles.Scripts.JqueryUiBundle)
+
+    <script type="text/javascript">
+        $(".remove").click(function () {
+            var toRemove = $(this).attr("data-id");
+            if (toRemove != '') {
+                $.post("/ShoppingCart/Remove", { "courseId": toRemove }, function (response) {
+                    if (response.PositionCount == 0) {
+                        $("#cart-position-" + response.PositionCourseId).fadeOut("fast", function () {
+                            if (response.CartCount == 0) {
+                                $("#positions").html("<p>Your cart is empty</p>");
+                            }
+                        });
+                    } else {
+                        $("#cart-position-count-" + response.PositionCourseId).text(response.PositionCount);
+                        $("#cart-position-value-" + response.PositionCourseId).text(response.PositionValue);
+                    }
+
+                    $("#total-value").text(response.CartValue);
+
+                    $("#cart-count").text(response.CartCount);
+                    $("#cart-value").text(response.CartValue);
+                });
+            }
+        });
+    </script>
+}

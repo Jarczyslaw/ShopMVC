@@ -1,5 +1,8 @@
 ﻿using ShopMVC.Services;
+using System.Globalization;
+using System.Threading;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace ShopMVC.Controllers
 {
@@ -14,6 +17,19 @@ namespace ShopMVC.Controllers
         public BaseController(ILoggerService logger)
         {
             this.logger = logger;
+        }
+
+        protected override void Initialize(RequestContext requestContext)
+        {
+            base.Initialize(requestContext);
+            SetCulture();
+        }
+
+        private void SetCulture()
+        {
+            const string culture = "en-US";
+            Thread.CurrentThread.CurrentCulture
+                = Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(culture);
         }
 
         protected override void OnException(ExceptionContext filterContext)
