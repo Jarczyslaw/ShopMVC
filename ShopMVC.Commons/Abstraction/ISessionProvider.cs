@@ -1,11 +1,9 @@
-﻿namespace ShopMVC.Commons.Abstraction
+﻿using System.Web.SessionState;
+
+namespace ShopMVC.Commons.Abstraction
 {
-    public interface ISessionProvider
+    public interface ISessionProvider : ICacheProvider
     {
-        T Get<T>(string key);
-
-        void Set<T>(string key, T value);
-
-        void Abandon();
+        HttpSessionState Session { get; }
     }
 }

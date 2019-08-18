@@ -48,5 +48,14 @@ namespace ShopMVC.Code
         {
             Cache.Remove(key);
         }
+
+        public void Clear()
+        {
+            var enumerator = Cache.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                Cache.Remove((string)enumerator.Key);
+            }
+        }
     }
 }

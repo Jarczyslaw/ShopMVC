@@ -55,7 +55,7 @@ namespace ShopMVC.Services
             {
                 cartPosition.Quantity++;
             }
-            sessionProvider.Set(CartContentKey, cart);
+            sessionProvider.Set(CartContentKey, cart, TimeSpan.Zero);
         }
 
         public int GetPositionCount(int courseId)
@@ -87,13 +87,13 @@ namespace ShopMVC.Services
                     cart.Remove(cartPosition);
                 }
             }
-            sessionProvider.Set(CartContentKey, cart);
+            sessionProvider.Set(CartContentKey, cart, TimeSpan.Zero);
             return newCount;
         }
 
         public void Clear()
         {
-            sessionProvider.Set<List<ShoppingCartPosition>>(CartContentKey, null);
+            sessionProvider.Remove(CartContentKey);
         }
 
         public Order CreateOrder(string userId)

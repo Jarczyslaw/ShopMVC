@@ -1,5 +1,4 @@
-﻿using ShopMVC.Commons;
-using ShopMVC.Commons.Abstraction;
+﻿using ShopMVC.Commons.Abstraction;
 using System;
 using System.Runtime.Caching;
 
@@ -8,6 +7,11 @@ namespace ShopMVC.Code
     public class MemoryCacheProvider : IMemoryCacheProvider
     {
         public MemoryCache Cache => MemoryCache.Default;
+
+        public void Clear()
+        {
+            Cache.Dispose();
+        }
 
         public object Get(string key)
         {

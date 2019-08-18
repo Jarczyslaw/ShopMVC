@@ -15,5 +15,7 @@ namespace ShopMVC.Commons.Abstraction
         bool IsSet(string key);
 
         void Remove(string key);
+
+        void Clear();
     }
 }
