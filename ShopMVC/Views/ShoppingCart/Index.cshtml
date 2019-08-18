@@ -1,12 +1,15 @@
 ﻿@using ShopMVC.ViewModels
+@model ShoppingCartViewModel
+
+@{
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
+}
 
 <h2>Shopping cart</h2>
 
-@model ShoppingCartViewModel
-
 @if (Model.PositionsCount == 0)
 {
-    
+
 }
 else
 {

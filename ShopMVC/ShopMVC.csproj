@@ -379,7 +379,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <None Include="T4MVC\T4MVC.tt.hooks.t4" />
     <Content Include="Views\Home\Regulations.cshtml" />
-    <Content Include="Views\Shared\_SubView.cshtml" />
+    <Content Include="Views\Shared\_SubLayout.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Views\Partial\_CoursesList.cshtml" />
     <Content Include="Views\Partial\_CategoriesList.cshtml" />

@@ -74,12 +74,6 @@ namespace ShopMVC.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CoursesPrompt);
         }
-        [NonAction]
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult Subview()
-        {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Subview);
-        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public CoursesController Actions { get { return MVC.Courses; } }
@@ -99,7 +93,6 @@ namespace ShopMVC.Controllers
             public readonly string List = "List";
             public readonly string Details = "Details";
             public readonly string CoursesPrompt = "CoursesPrompt";
-            public readonly string Subview = "Subview";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -108,7 +101,6 @@ namespace ShopMVC.Controllers
             public const string List = "List";
             public const string Details = "Details";
             public const string CoursesPrompt = "CoursesPrompt";
-            public const string Subview = "Subview";
         }
 
 
@@ -136,15 +128,6 @@ namespace ShopMVC.Controllers
         public class ActionParamsClass_CoursesPrompt
         {
             public readonly string term = "term";
-        }
-        static readonly ActionParamsClass_Subview s_params_Subview = new ActionParamsClass_Subview();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_Subview SubviewParams { get { return s_params_Subview; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_Subview
-        {
-            public readonly string targetView = "targetView";
-            public readonly string viewModel = "viewModel";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -203,19 +186,6 @@ namespace ShopMVC.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CoursesPrompt);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "term", term);
             CoursesPromptOverride(callInfo, term);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void SubviewOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string targetView, object viewModel);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult Subview(string targetView, object viewModel)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Subview);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "targetView", targetView);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "viewModel", viewModel);
-            SubviewOverride(callInfo, targetView, viewModel);
             return callInfo;
         }
 

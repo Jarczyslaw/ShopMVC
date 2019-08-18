@@ -1,6 +1,6 @@
-﻿@using ShopMVC.ViewModels;
-
-@model SubviewViewModel
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <div class="row">
     <div class="col-3">
@@ -16,18 +16,19 @@
         </div>
         <div class="row">
             <div class="col">
-                @Html.Partial(Model.TargetView, Model.TargetViewModel)
+                @RenderBody()
             </div>
         </div>
     </div>
 </div>
 
+<!-- Propagate sections rendering to parent (_Layout) view -->
 @section AdditionalStyles
 {
-    @Styles.Render(Links.Bundles.Styles.UiCssBundle)
+    @RenderSection(Links.Sections.AdditionalStyles, false)
 }
 
 @section AdditionalScripts
 {
-    @Scripts.Render(Links.Bundles.Scripts.JqueryUiBundle)
+    @RenderSection(Links.Sections.AdditionalScripts, false)
 }

@@ -25,7 +25,7 @@ namespace ShopMVC.Controllers
             var newBestsellers = appCache.GetBestsellers(() => coursesService.GetBestsellers()
                 .ToList());
 
-            return Subview(MVC.Home.Views.Index, new HomeIndexViewModel()
+            return View(MVC.Home.Views.Index, new HomeIndexViewModel()
             {
                 NewCourses = newCourses,
                 Bestsellers = newBestsellers

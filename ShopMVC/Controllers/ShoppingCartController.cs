@@ -16,7 +16,7 @@ namespace ShopMVC.Controllers
 
         public virtual ActionResult Index()
         {
-            return Subview(MVC.ShoppingCart.Views.Index, new ShoppingCartViewModel());
+            return View(MVC.ShoppingCart.Views.Index, new ShoppingCartViewModel());
         }
 
         [ChildActionOnly]

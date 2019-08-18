@@ -1,5 +1,4 @@
 ﻿using ShopMVC.Services;
-using ShopMVC.ViewModels;
 using System.Web.Mvc;
 
 namespace ShopMVC.Controllers
@@ -15,15 +14,6 @@ namespace ShopMVC.Controllers
         public BaseController(ILoggerService logger)
         {
             this.logger = logger;
-        }
-
-        public virtual ActionResult Subview(string targetView, object viewModel)
-        {
-            return View(MVC.Shared.Views._SubView, new SubviewViewModel()
-            {
-                TargetView = targetView,
-                TargetViewModel = viewModel
-            });
         }
 
         protected override void OnException(ExceptionContext filterContext)

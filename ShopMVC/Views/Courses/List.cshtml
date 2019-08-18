@@ -2,11 +2,12 @@
 
 @{
     ViewBag.Title = "Courses";
+    Layout = "~/Views/Shared/_SubLayout.cshtml";
 }
 
 <div class="row">
     <form id="search-form" method="get" data-ajax="true" data-ajax-target="#courses">
-        <input id="search-filter" 
+        <input id="search-filter"
                type="search"
                name="searchQuery"
                data-autocomplete-source="@Url.Action(MVC.Courses.ActionNames.CoursesPrompt)"
@@ -24,45 +25,54 @@
     @Html.Partial(MVC.Partial.Views._CoursesList, Model.Courses)
 </div>
 
+@section AdditionalStyles
+{
+    @Styles.Render(Links.Bundles.Styles.UiCssBundle)
+}
 
-<script>
-    $(function () {
-        var setupAutoComplete = function () {
-            var $input = $(this);
+@section AdditionalScripts
+{
+    @Scripts.Render(Links.Bundles.Scripts.JqueryUiBundle)
 
-            var options = {
-                source: $input.attr("data-autocomplete-source"),
-                select: function (event, ui) {
-                    $input = $(this);
-                    $input.val(ui.item.label);
-                    var $form = $input.parents("form:first");
-                    $form.submit();
-                }
+    <script>
+        $(function () {
+            var setupAutoComplete = function () {
+                var $input = $(this);
+
+                var options = {
+                    source: $input.attr("data-autocomplete-source"),
+                    select: function (event, ui) {
+                        $input = $(this);
+                        $input.val(ui.item.label);
+                        var $form = $input.parents("form:first");
+                        $form.submit();
+                    }
+                };
+
+                $input.autocomplete(options);
             };
 
-            $input.autocomplete(options);
-        };
+            var ajaxSubmit = function () {
+                var $form = $(this);
 
-        var ajaxSubmit = function () {
-            var $form = $(this);
+                var settings = {
+                    data: $(this).serialize(),
+                    url: $(this).attr("action"),
+                    type: $(this).attr("method")
+                }
 
-            var settings = {
-                data: $(this).serialize(),
-                url: $(this).attr("action"),
-                type: $(this).attr("method")
+                $.ajax(settings).done(function (result) {
+                    var $target = $($form.data("ajax-target"));
+                    var $content = $(result);
+                    $($target).replaceWith($content);
+                    $content.effect("slide");
+                });
+
+                return false;
             }
 
-            $.ajax(settings).done(function (result) {
-                var $target = $($form.data("ajax-target"));
-                var $content = $(result);
-                $($target).replaceWith($content);
-                $content.effect("slide");
-            });
-
-            return false;
-        }
-
-        $("#search-filter").each(setupAutoComplete);
-        $("#search-form").submit(ajaxSubmit);
-    });
-</script>
+            $("#search-filter").each(setupAutoComplete);
+            $("#search-form").submit(ajaxSubmit);
+        });
+    </script>
+}

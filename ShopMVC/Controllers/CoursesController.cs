@@ -24,7 +24,7 @@ namespace ShopMVC.Controllers
                 return PartialView(MVC.Partial.Views._CoursesList, coursesService.GetCoursesByTerm(searchQuery, 5));
             }
 
-            return Subview(MVC.Courses.Views.List, new CoursesListViewModel()
+            return View(MVC.Courses.Views.List, new CoursesListViewModel()
             {
                 Category = categoriesService.GetCategoryById(categoryId),
                 Courses = coursesService.GetCoursesInCategory(categoryId)
@@ -34,7 +34,7 @@ namespace ShopMVC.Controllers
         public virtual ActionResult Details(int courseId)
         {
             var course = coursesService.GetCourseById(courseId);
-            return Subview(MVC.Courses.Views.Details, new CourseDetailsViewModel()
+            return View(MVC.Courses.Views.Details, new CourseDetailsViewModel()
             {
                 Course = course,
                 Category = categoriesService.GetCategoryById(course.CategoryId)
