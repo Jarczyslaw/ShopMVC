@@ -56,6 +56,12 @@ namespace ShopMVC.Controllers
             return RedirectToActionPermanent(taskResult.Result);
         }
 
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult AddToCart()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddToCart);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ShoppingCartController Actions { get { return MVC.ShoppingCart; } }
@@ -73,6 +79,7 @@ namespace ShopMVC.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
+            public readonly string AddToCart = "AddToCart";
             public readonly string GetCartCount = "GetCartCount";
             public readonly string GetCartValue = "GetCartValue";
             public readonly string GetCartLink = "GetCartLink";
@@ -82,12 +89,21 @@ namespace ShopMVC.Controllers
         public class ActionNameConstants
         {
             public const string Index = "Index";
+            public const string AddToCart = "AddToCart";
             public const string GetCartCount = "GetCartCount";
             public const string GetCartValue = "GetCartValue";
             public const string GetCartLink = "GetCartLink";
         }
 
 
+        static readonly ActionParamsClass_AddToCart s_params_AddToCart = new ActionParamsClass_AddToCart();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_AddToCart AddToCartParams { get { return s_params_AddToCart; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_AddToCart
+        {
+            public readonly string courseId = "courseId";
+        }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ViewsClass Views { get { return s_views; } }
@@ -117,6 +133,18 @@ namespace ShopMVC.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
             IndexOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void AddToCartOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int courseId);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult AddToCart(int courseId)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddToCart);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "courseId", courseId);
+            AddToCartOverride(callInfo, courseId);
             return callInfo;
         }
 

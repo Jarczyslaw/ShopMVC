@@ -430,6 +430,10 @@
       <Project>{DC9810B5-C640-460C-AEDB-F20949790B14}</Project>
       <Name>ShopMVC.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ShopMVC.Models\ShopMVC.Models.csproj">
+      <Project>{720C4F51-3A97-4C41-81D5-345AA8C2AF72}</Project>
+      <Name>ShopMVC.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShopMVC.Services\ShopMVC.Services.csproj">
       <Project>{39C0ECA0-73AD-483A-B09D-B3DA10215CC6}</Project>
       <Name>ShopMVC.Services</Name>

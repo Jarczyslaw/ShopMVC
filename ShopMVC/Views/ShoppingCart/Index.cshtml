@@ -14,7 +14,24 @@
 }
 else
 {
-    <table>
+    <table style="margin: 10px; width: 100%">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Value
+                </th>
+            </tr>
+        </thead>
+        <tbody>
         @foreach (var position in Model.Positions)
         {
             var id = @position.Course.CourseId;
@@ -40,9 +57,24 @@ else
                 </td>
             </tr>
         }
-    </table>
+</table>
+
+    <div>
+        Total: <span>@Model.TotalValue</span>
+    </div>
+
+    if (Model.ContainsPayments)
+    {
+        <div class="row" style="margin: 5px; float: right;">
+            <a href="" class="linkButton">
+                Pay
+            </a>
+        </div>
+    }
 }
 
-<a href="@Url.Content("~/")" class="linkButton">
-    Continue to shop
-</a>
+<div class="row" style="margin: 5px;">
+    <a href="@Url.Content("~/")" class="linkButton">
+        Continue to shop
+    </a>
+</div>

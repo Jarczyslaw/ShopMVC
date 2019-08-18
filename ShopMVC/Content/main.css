@@ -3,7 +3,7 @@
 }
 
 a.linkButton {
-    width: 150px;
+    min-width: 150px;
     padding: 5px;
     font-weight: bold;
     display: block;

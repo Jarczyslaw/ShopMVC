@@ -1,4 +1,5 @@
-﻿using ShopMVC.Services;
+﻿using ShopMVC.Commons.Extensions;
+using ShopMVC.Services;
 using ShopMVC.ViewModels;
 using System.Web.Mvc;
 
@@ -7,16 +8,28 @@ namespace ShopMVC.Controllers
     public partial class ShoppingCartController : BaseController
     {
         private readonly IShoppingCartService shoppingCartService;
+        private readonly ICoursesService coursesService;
 
-        public ShoppingCartController(IShoppingCartService shoppingCartService, ILoggerService logger)
+        public ShoppingCartController(ICoursesService coursesService, IShoppingCartService shoppingCartService, ILoggerService logger)
             : base(logger)
         {
+            this.coursesService = coursesService;
             this.shoppingCartService = shoppingCartService;
         }
 
         public virtual ActionResult Index()
         {
-            return View(MVC.ShoppingCart.Views.Index, new ShoppingCartViewModel());
+            return View(MVC.ShoppingCart.Views.Index, new ShoppingCartViewModel
+            {
+                Positions = shoppingCartService.GetContent()
+            });
+        }
+
+        public virtual ActionResult AddToCart(int courseId)
+        {
+            var course = coursesService.GetCourseById(courseId);
+            shoppingCartService.Add(course);
+            return RedirectToAction(MVC.ShoppingCart.Index());
         }
 
         [ChildActionOnly]
@@ -33,7 +46,7 @@ namespace ShopMVC.Controllers
         {
             return new ContentResult()
             {
-                Content = shoppingCartService.GetContentValue().ToString("C")
+                Content = shoppingCartService.GetContentValue().ToCurrency()
             };
         }
 
