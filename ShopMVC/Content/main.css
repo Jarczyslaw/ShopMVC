@@ -2,7 +2,7 @@
     font-size: 16px;
 }
 
-a.basket {
+a.linkButton {
     width: 150px;
     padding: 5px;
     font-weight: bold;
@@ -11,9 +11,10 @@ a.basket {
     color: white;
     text-decoration: none;
     background-color: #6c757d;
+    border: 2px solid #262626;
 }
 
-    a.basket:hover {
+    a.linkButton:hover {
         color: #343a40;
         background-color: #f8f9fa;
         text-decoration: none;

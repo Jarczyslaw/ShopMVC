@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ShopMVC.Commons\ShopMVC.Commons.csproj">
+      <Project>{EE479E3C-C12F-4CE8-BBDB-7EE08E188073}</Project>
+      <Name>ShopMVC.Commons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShopMVC.DataAccess.Models\ShopMVC.DataAccess.Models.csproj">
       <Project>{654940E1-D3CC-4845-89CA-DF2466D347EB}</Project>
       <Name>ShopMVC.DataAccess.Models</Name>

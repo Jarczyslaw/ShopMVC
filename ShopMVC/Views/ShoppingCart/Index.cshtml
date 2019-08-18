@@ -1,4 +1,5 @@
 ﻿@using ShopMVC.ViewModels
+
 @model ShoppingCartViewModel
 
 @{
@@ -9,8 +10,39 @@
 
 @if (Model.PositionsCount == 0)
 {
-
+    <p>Your cart is empty</p>
 }
 else
 {
+    <table>
+        @foreach (var position in Model.Positions)
+        {
+            var id = @position.Course.CourseId;
+            <tr id="cart-position-@id">
+                <td>
+                    <a href="@Url.Action(MVC.Courses.ActionNames.Details, MVC.Courses.Name, new { courseId = id })">
+                        @position.Course.Title
+                    </a>
+                </td>
+                <td>
+                    @position.PriceDisp
+                </td>
+                <td>
+                    <span id="cart-position-count-@id">
+                        @position.Quantity
+                    </span>
+                </td>
+                <td>
+                    @position.ValueDisp
+                </td>
+                <td>
+                    <a href="#" data-id="@id">Remove</a>
+                </td>
+            </tr>
+        }
+    </table>
 }
+
+<a href="@Url.Content("~/")" class="linkButton">
+    Continue to shop
+</a>
