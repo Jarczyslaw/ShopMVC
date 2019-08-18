@@ -11,7 +11,7 @@ namespace ShopMVC
 
             routes.MapRoute(
                 name: "Pages",
-                url: "{page}",
+                url: "pages/{page}",
                 result: MVC.Home.Pages()
                 );
 
@@ -30,7 +30,7 @@ namespace ShopMVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
-                defaults: new { controller = MVC.Home.Name, action = MVC.Home.ActionNames.Index }
+                defaults: new { controller = MVC.Home.Name, action = "index" }
             );
         }
     }

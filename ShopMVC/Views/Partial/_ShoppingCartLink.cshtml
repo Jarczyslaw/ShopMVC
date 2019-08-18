@@ -2,6 +2,6 @@
 
 @model ShoppingCartLinkViewModel
 
-<a href="@Url.Action(MVC.ShoppingCart.Index())" class="basket">
+<a href="@Url.Action(MVC.ShoppingCart.ActionNames.Index, MVC.ShoppingCart.Name)" class="basket">
     Basket (@Model.Count) - @Model.ValueDisp
 </a>
