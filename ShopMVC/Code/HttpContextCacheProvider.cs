@@ -1,5 +1,4 @@
-﻿using ShopMVC.Commons;
-using ShopMVC.Commons.Abstraction;
+﻿using ShopMVC.Commons.Abstraction;
 using System;
 using System.Web;
 using System.Web.Caching;
@@ -15,7 +14,7 @@ namespace ShopMVC.Code
             return Cache.Get(key);
         }
 
-        public T GetOrSet<T>(string key, Func<T> func, TimeSpan duration)
+        public T GetOrSet<T>(string key, Func<T> func, TimeSpan? duration = null)
         {
             if (IsSet(key))
             {
@@ -39,9 +38,16 @@ namespace ShopMVC.Code
             return Cache.Get(key) != null;
         }
 
-        public void Set(string key, object value, TimeSpan duration)
+        public void Set(string key, object value, TimeSpan? duration = null)
         {
-            Cache.Insert(key, value, null, DateTime.Now + duration, Cache.NoSlidingExpiration);
+            if (duration.HasValue)
+            {
+                Cache.Insert(key, value, null, DateTime.Now + duration.Value, Cache.NoSlidingExpiration);
+            }
+            else
+            {
+                Cache.Insert(key, value);
+            }
         }
 
         public void Remove(string key)

@@ -24,7 +24,7 @@ namespace ShopMVC.Code
             return Session[key];
         }
 
-        public T GetOrSet<T>(string key, Func<T> func, TimeSpan duration)
+        public T GetOrSet<T>(string key, Func<T> func, TimeSpan? duration = null)
         {
             if (IsSet(key))
             {
@@ -48,14 +48,9 @@ namespace ShopMVC.Code
             Session.Remove(key);
         }
 
-        public void Set<T>(string key, T value)
+        public void Set(string key, object value, TimeSpan? duration = null)
         {
             Session[key] = value;
-        }
-
-        public void Set(string key, object value, TimeSpan duration)
-        {
-            Set(key, value);
         }
     }
 }

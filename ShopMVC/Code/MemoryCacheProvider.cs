@@ -23,7 +23,7 @@ namespace ShopMVC.Code
             return (T)Get(key);
         }
 
-        public T GetOrSet<T>(string key, Func<T> func, TimeSpan duration)
+        public T GetOrSet<T>(string key, Func<T> func, TimeSpan? duration = null)
         {
             if (IsSet(key))
             {
@@ -47,9 +47,14 @@ namespace ShopMVC.Code
             Cache.Remove(key);
         }
 
-        public void Set(string key, object value, TimeSpan duration)
+        public void Set(string key, object value, TimeSpan? duration = null)
         {
-            Cache.Set(key, value, DateTime.Now);
+            DateTimeOffset expiration = DateTime.Now;
+            if (duration.HasValue)
+            {
+                expiration += duration.Value;
+            }
+            Cache.Set(key, value, expiration);
         }
     }
 }
