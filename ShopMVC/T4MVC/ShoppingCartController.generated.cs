@@ -62,6 +62,12 @@ namespace ShopMVC.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddToCart);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult Remove()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Remove);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ShoppingCartController Actions { get { return MVC.ShoppingCart; } }
@@ -80,6 +86,7 @@ namespace ShopMVC.Controllers
         {
             public readonly string Index = "Index";
             public readonly string AddToCart = "AddToCart";
+            public readonly string Remove = "Remove";
             public readonly string GetCartCount = "GetCartCount";
             public readonly string GetCartValue = "GetCartValue";
             public readonly string GetCartLink = "GetCartLink";
@@ -90,6 +97,7 @@ namespace ShopMVC.Controllers
         {
             public const string Index = "Index";
             public const string AddToCart = "AddToCart";
+            public const string Remove = "Remove";
             public const string GetCartCount = "GetCartCount";
             public const string GetCartValue = "GetCartValue";
             public const string GetCartLink = "GetCartLink";
@@ -101,6 +109,14 @@ namespace ShopMVC.Controllers
         public ActionParamsClass_AddToCart AddToCartParams { get { return s_params_AddToCart; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionParamsClass_AddToCart
+        {
+            public readonly string courseId = "courseId";
+        }
+        static readonly ActionParamsClass_Remove s_params_Remove = new ActionParamsClass_Remove();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Remove RemoveParams { get { return s_params_Remove; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Remove
         {
             public readonly string courseId = "courseId";
         }
@@ -145,6 +161,18 @@ namespace ShopMVC.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddToCart);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "courseId", courseId);
             AddToCartOverride(callInfo, courseId);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void RemoveOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int courseId);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Remove(int courseId)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Remove);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "courseId", courseId);
+            RemoveOverride(callInfo, courseId);
             return callInfo;
         }
 

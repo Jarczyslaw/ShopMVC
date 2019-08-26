@@ -27,6 +27,7 @@ using T4MVC;
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static partial class MVC
 {
+    public static ShopMVC.Controllers.AccountController Account = new ShopMVC.Controllers.T4MVC_AccountController();
     public static ShopMVC.Controllers.BaseController Base = new ShopMVC.Controllers.T4MVC_BaseController();
     public static ShopMVC.Controllers.CategoriesController Categories = new ShopMVC.Controllers.T4MVC_CategoriesController();
     public static ShopMVC.Controllers.CoursesController Courses = new ShopMVC.Controllers.T4MVC_CoursesController();

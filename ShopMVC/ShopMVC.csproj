@@ -182,6 +182,7 @@
     <Compile Include="Code\IAppCache.cs" />
     <Compile Include="Code\MemoryCacheProvider.cs" />
     <Compile Include="Code\SessionProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
@@ -200,6 +201,9 @@
     <Compile Include="Services\LoggerService.cs" />
     <Compile Include="Sitemap\CategoriesNodeProvider.cs" />
     <Compile Include="Sitemap\CoursesNodeProvider.cs" />
+    <Compile Include="T4MVC\AccountController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4MVC\AdditionalLinks.cs" />
     <Compile Include="T4MVC\BaseController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
@@ -395,6 +399,8 @@
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Partial\_ShoppingCartLink.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

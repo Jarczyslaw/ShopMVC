@@ -7,7 +7,8 @@
     <mvcSiteMapNode title="Category" controller="Courses" action="List" dynamicNodeProvider="ShopMVC.Sitemap.CategoriesNodeProvider, ShopMVC">
       <mvcSiteMapNode title="Course" controller="Courses" action="Details" dynamicNodeProvider="ShopMVC.Sitemap.CoursesNodeProvider, ShopMVC" />
     </mvcSiteMapNode>
-    <mvcSiteMapNode title="ShoppingCart" controller="ShoppingCart" action="Index" />
+    <mvcSiteMapNode title="Registration" controller="Account" action="Register" />
+    <mvcSiteMapNode title="Login" controller="Account" action="Login" />
   </mvcSiteMapNode>
 
 </mvcSiteMap>
