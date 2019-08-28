@@ -10,7 +10,7 @@
     <title>@GetTitle()</title>
     <link rel="icon" href="@Url.Content(Links.Content.favicon_ico)" />
 
-    @Styles.Render(Links.Bundles.Styles.CssBundle)
+    @Styles.Render(Links.Bundles.Styles.Css)
     @RenderSection(Links.Sections.AdditionalStyles, false)
 </head>
 <body>
@@ -52,8 +52,8 @@
         </div>
     </footer>
 
-    @Scripts.Render(Links.Bundles.Scripts.JqueryBundle)
-    @Scripts.Render(Links.Bundles.Scripts.BootstrapBundle)
+    @Scripts.Render(Links.Bundles.Scripts.Jquery)
+    @Scripts.Render(Links.Bundles.Scripts.Bootstrap)
     @RenderSection(Links.Sections.AdditionalScripts, false)
 </body>
 </html>

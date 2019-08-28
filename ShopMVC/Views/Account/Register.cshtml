@@ -1,8 +1,69 @@
-﻿
+﻿@using ShopMVC.ViewModels;
+
+@model RegisterViewModel
+
 @{
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_SubLayout.cshtml";
 }
 
-<h2>Register</h2>
+<h4>Registration</h4>
 
+<div>
+    @using (Html.BeginForm(MVC.Account.ActionNames.Register, MVC.Account.Name))
+    {
+        @Html.AntiForgeryToken();
+
+        <div id="register-error">
+            @Html.ValidationMessage("registererror", string.Empty)
+            @Html.ValidationSummary()
+        </div>
+
+        <table id="register-table">
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Email, "E-mail:")
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Email)
+                    <div class="register-validation-message">
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Password, "Password:")
+                </td>
+                <td>
+                    @Html.PasswordFor(m => m.Password)
+                    <div class="register-validation-message">
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.ConfirmPassword, "Confirm password:")
+                </td>
+                <td>
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                    <div class="register-validation-message">
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Register" class="submit-link" style="height: 40px" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+@section AdditionalScripts
+{
+    @Scripts.Render(Links.Bundles.Scripts.Jquery)
+    @Scripts.Render(Links.Bundles.Scripts.JqueryValidation)
+}

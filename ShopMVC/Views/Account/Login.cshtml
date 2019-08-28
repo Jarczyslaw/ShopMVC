@@ -7,13 +7,16 @@
     Layout = "~/Views/Shared/_SubLayout.cshtml";
 }
 
+<h4>Login</h4>
+
 <div style="margin: 5px;">
-    @using(Html.BeginForm(MVC.Account.ActionNames.Login, MVC.Account.Name, new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    @using (Html.BeginForm(MVC.Account.ActionNames.Login, MVC.Account.Name, new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
     {
         Html.AntiForgeryToken();
 
         <div id="login-error">
             @Html.ValidationMessage("loginerror", string.Empty)
+            @Html.ValidationSummary()
         </div>
 
         <table id="login-table">
@@ -45,6 +48,10 @@
                         @Html.CheckBoxFor(m => m.RememberMe, new { @checked = "checked" })
                         @Html.LabelFor(m => m.RememberMe)
                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
                     <input type="submit" value="Login" class="submit-link" style="height: 40px" />
                 </td>
             </tr>
@@ -54,3 +61,9 @@
         <a href="@Url.Action(MVC.Account.ActionNames.Register, MVC.Account.Name)">I don't have an account yet</a>
     </div>
 </div>
+
+@section AdditionalScripts
+{
+    @Scripts.Render(Links.Bundles.Scripts.Jquery)
+    @Scripts.Render(Links.Bundles.Scripts.JqueryValidation)
+}

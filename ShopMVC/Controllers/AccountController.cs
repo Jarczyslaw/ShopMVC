@@ -33,5 +33,16 @@ namespace ShopMVC.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public virtual ActionResult Register(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            return RedirectToAction(MVC.Home.Index());
+        }
     }
 }

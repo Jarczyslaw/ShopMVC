@@ -1,9 +1,4 @@
-﻿using ShopMVC.DataAccess.Models;
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using ShopMVC.DataAccess.Abstraction;
-using ShopMVC.Commons;
+﻿using ShopMVC.DataAccess.Abstraction;
 
 namespace ShopMVC.Services
 {

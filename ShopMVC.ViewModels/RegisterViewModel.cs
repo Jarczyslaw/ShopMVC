@@ -10,7 +10,7 @@ namespace ShopMVC.ViewModels
 
         [Required(ErrorMessage = "Insert password")]
         [DataType(DataType.Password)]
-        [StringLength(30)]
+        [StringLength(30, ErrorMessage = "{0} must have at least {2} signs.", MinimumLength = 6)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 

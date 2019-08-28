@@ -45,28 +45,6 @@ namespace T4MVC
             public readonly string _Error = "~/Views/Shared/_Error.cshtml";
             public readonly string _Layout = "~/Views/Shared/_Layout.cshtml";
             public readonly string _SubLayout = "~/Views/Shared/_SubLayout.cshtml";
-            static readonly _DisplayTemplatesClass s_DisplayTemplates = new _DisplayTemplatesClass();
-            public _DisplayTemplatesClass DisplayTemplates { get { return s_DisplayTemplates; } }
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public partial class _DisplayTemplatesClass
-            {
-                public readonly string CanonicalHelperModel = "CanonicalHelperModel";
-                public readonly string CanonicalHelperModel_cshtml = "CanonicalHelperModel";
-                public readonly string MenuHelperModel = "MenuHelperModel";
-                public readonly string MenuHelperModel_cshtml = "MenuHelperModel";
-                public readonly string MetaRobotsHelperModel = "MetaRobotsHelperModel";
-                public readonly string MetaRobotsHelperModel_cshtml = "MetaRobotsHelperModel";
-                public readonly string SiteMapHelperModel = "SiteMapHelperModel";
-                public readonly string SiteMapHelperModel_cshtml = "SiteMapHelperModel";
-                public readonly string SiteMapNodeModel = "SiteMapNodeModel";
-                public readonly string SiteMapNodeModel_cshtml = "SiteMapNodeModel";
-                public readonly string SiteMapNodeModelList = "SiteMapNodeModelList";
-                public readonly string SiteMapNodeModelList_cshtml = "SiteMapNodeModelList";
-                public readonly string SiteMapPathHelperModel = "SiteMapPathHelperModel";
-                public readonly string SiteMapPathHelperModel_cshtml = "SiteMapPathHelperModel";
-                public readonly string SiteMapTitleHelperModel = "SiteMapTitleHelperModel";
-                public readonly string SiteMapTitleHelperModel_cshtml = "SiteMapTitleHelperModel";
-            }
         }
     }
 
